@@ -1,0 +1,49 @@
+*{
+  box-sizing: border-box;
+}
+
+.user-register{
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  .header{
+  }
+  
+  .user-wrapper{
+    .field{
+      .text-css{
+        width: 400px;
+        height: 50px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      .name-css{
+        width: 200px;
+        height: 50px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+    }
+    .tel{
+      display: none;
+      &__number{
+        width: 400px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+    }
+  }
+}
