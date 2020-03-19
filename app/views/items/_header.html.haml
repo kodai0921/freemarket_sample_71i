@@ -1,0 +1,29 @@
+%header.Header
+  .Header__Inner
+    .Header__Inner__Main
+      %h1.Icon
+        = link_to "#" do
+          = image_tag "material/logo/logo.png"
+      .SearchBox
+        %form
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input.searchBox--input{:name => "key", :placeholder => "キーワードから探す"}/
+          %button{:type => "submit"}
+            .SearchBox__Icon
+              = image_tag "material/icon/icon-search 1.png"
+          %input{:name => "authenticity_token", :type => "hidden", :value => "uVZj7A/coIgKpdbByo6mUcAG7s+19NBpq1fiUVHbwLIRxtm9Vg6SyAZd9bPXrcKVvU4mAPkfYpf73EWM+wZgNw=="}/
+    .Header__Inner__Menuber
+      %ul.ListLeft
+        %li.ListsLeft__Categories
+          = link_to "#" do
+            カテゴリ
+        %li.ListsLeft__Categories
+          = link_to "#" do
+            ブランド
+      %ul.ListRight
+        %li.ListLeft__Item
+          = link_to "#" do
+            ログイン
+        %li.ListRight__Item
+          = link_to "#" do
+            新規登録
