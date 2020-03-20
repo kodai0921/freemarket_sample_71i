@@ -64,3 +64,7 @@ gem "haml-rails"
 gem "erb2haml"
 gem "ancestry"
 gem 'font-awesome-sass'
+gem 'devise'
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+
