@@ -64,3 +64,6 @@ gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem "haml-rails"
+gem "erb2haml"
+gem "ancestry"
