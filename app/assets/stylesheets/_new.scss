@@ -1,0 +1,198 @@
+a {
+  text-decoration: none;
+}
+p {
+  display: block;
+  margin-block-start: 5px;
+  margin-block-end: 5px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+span {
+  margin-left  : 8px;
+  font-size    : 12px;
+  padding      : 0 4px;
+  background-color: #ff0211;
+  color        : #fff;
+  border-radius: 2px;
+  font-weight  : 600;
+  line-height  : 20px;
+}
+.glaybox {
+  margin-left  : 8px;
+  font-size    : 12px;
+  padding      : 0 4px;
+  background-color: #bfbfbf;
+  color        : #fff;
+  border-radius: 2px;
+  font-weight  : 600;
+  line-height  : 20px;
+}
+.Required {
+  height : 20px;
+  display: flex;
+  background-color: chartreuse;
+}
+.Space {
+  padding: 40px;
+}
+.Glay {
+  color: rgb(136, 136, 136);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin-bottom: 24px;
+}
+.Black {
+  height     : 20px;
+  font-size  : 14px;
+  line-height: 20px;
+  margin-top : 5px;
+  background-color: cyan;
+}
+.red {
+  font-size  : 14px;
+  color :red;
+}
+.InputBox1 {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  height: 48px;
+  margin-top: 5px;
+  outline: none;
+  padding: 0 16px;
+  width: 100%;
+}
+.InputBox2 {
+  height: 150px;
+  width : 100%;
+  font-family: inherit;
+  font-size: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  padding: 13px 16px;
+}
+
+
+
+
+
+
+
+
+.ItemExhibition {
+  display       : flex;
+  flex-direction: column;
+  min-height    : 100vh;
+  &__Header {
+    height           : 128px;
+    -webkit-box-align: center;
+    align-items      : center;
+    display          : flex;
+    -webkit-box-pack : center;
+    justify-content  : center;
+    background-color : aqua;
+    &__Icon {
+      height: 49px;
+      width : 185px;
+    }
+  }
+  &__Contents {
+    width           : 700px;
+    margin          : 0px auto;
+    min-height      : 100vh;
+    background-color: blue;
+    &__Inner {
+      vertical-align: baseline;
+      margin        : 0;
+      padding       : 0;
+      border-width  : 0px;
+      font          : inherit;
+      .ItemImage {
+        height        : 300px;
+        vertical-align: baseline;
+        border-width  : 0px;
+        background-color: brown;
+        &__Title {
+          label {
+            font-size  : 14px;
+            font-weight: 600;
+            line-height: 20px;
+          }
+        }
+        .ImageBox {
+          align-content    : center;
+          -webkit-box-align: center;
+          align-items      : center;
+          background-color: rgb(245, 245, 245);
+          cursor           : pointer;
+          display          : flex;
+          height           : 70%;
+          flex-wrap        : wrap;
+          -webkit-box-pack : center;
+          justify-content  : center;
+          position         : relative;
+          border-width     : 1px;
+          border-style     : dashed;
+          border-color     : rgb(204, 204, 204);
+          border-image     : initial;
+          transition       : all 0.5s ease-out 0s;
+          label {
+            text-align: center;
+          
+            input {
+              display      : none;
+              margin-bottom: 8px;
+            }
+            pre {
+              font-size  : 12px;
+              line-height: 1.4em;
+              text-align : center;
+              width      : 100%;
+            }
+          }
+        }
+      }
+      .DescriptionItem {
+        padding: 40px;
+        background-color: darkmagenta;
+        &__Inner {
+          margin-bottom: 20px;
+        }
+        .WordCount {
+          color: #888;
+          font-size: 12px;
+          line-height: 1.4em;
+          text-align: right;
+        }
+      }
+      .DescriptionItemShow {
+        padding: 40px;
+        background-color: slateblue;
+        &__Inner {
+          margin-bottom: 20px;
+          &__Categories {
+            margin-top: 20px;
+          }
+          select {
+          }
+        }
+      }
+      .DescriptionDelivery {
+        padding: 40px;
+        height: 700px;
+        background-color: salmon;
+        &__Inner {
+          margin-bottom: 20px;
+          &__Categories {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+}
