@@ -343,15 +343,22 @@ main {
       }
     }
     &__Footer {
-      height           : 150px;
+      margin: 50px 0;
       -webkit-box-align: center;
       align-items      : center;
-      display          : flex;
       -webkit-box-pack : center;
       justify-content  : center;
+      &__Notation {
+        p {
+          font-size: 10px;
+          text-align: center;
+        }
+      }
       &__Icon {
         width : 185px;
+        margin           : 0 auto;
       }
     }
   }
 }
+
