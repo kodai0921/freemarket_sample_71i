@@ -67,6 +67,8 @@ gem "erb2haml"
 gem "ancestry"
 gem 'font-awesome-sass'
 gem 'devise'
+gem 'jp_prefecture'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem 'sqlite3', '~> 1.3.13'
 

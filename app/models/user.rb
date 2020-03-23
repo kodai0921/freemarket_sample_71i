@@ -18,4 +18,5 @@ class User < ApplicationRecord
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
   validates :tel, presence: true, format: {with: VALID_PHONE_REGEX}
   has_many :items
+  has_one :address
 end
