@@ -89,8 +89,5 @@ RSpec.describe Address, type: :model do
       user.valid?
       expect(user.errors[:address_city]).to include("can't be blank")
     end
-
-
-
   end
 end

@@ -71,4 +71,5 @@ gem 'jp_prefecture'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'sqlite3', '~> 1.3.13'
+gem 'pry-rails'
 
