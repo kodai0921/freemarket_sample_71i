@@ -1,0 +1,75 @@
+
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+
+@mixin ItemName($color: black){
+  font-size  : 24px;
+  text-align : center;
+  word-wrap  : break-word;
+  line-height: 1.4;
+}
+
+main {
+  .ItemIntroduction {
+    display       : flex;
+    flex-direction: column;
+    min-height    : 100vh;
+    
+    &__Inner {
+      width           : 700px;
+      margin          : 0px auto;
+      padding         : 24px 40px 40px;
+      min-height      : 100vh;
+      background-color: white;
+      h1 {
+        @include ItemName;
+      }
+      .ItemIntroduction__MainContents {
+        display: flex;
+        margin : 16px 0 0;
+        display: flex;
+        .PhotoBox {
+          min-height: 300px;
+          width: 300px;
+          height: 100%;
+          
+          display: flex;
+          &__Inner{
+            margin: 0 auto;
+            &__Footer {
+              line-height: 0;
+              display: flex;
+              .FooterBox {
+                width: 60px;
+                height: 60px;
+                max-height: none;
+                overflow: hidden;
+                opacity: 1;
+                cursor: default;
+                a {
+                  line-height: 60px;
+                }
+              }
+            }
+          }
+        }
+        .PriceBox {
+          min-height: 300px;
+          width: 300px;
+          table {
+            float: right;
+            max-width: 300px;
+            height: 420px;
+            margin: 0 auto;
+            
+          }
+        }
+      }
+    }
+  }
+}
+
