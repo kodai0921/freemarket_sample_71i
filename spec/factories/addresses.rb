@@ -8,5 +8,6 @@ FactoryBot.define do
     prefecture_name       {"東京都"}
     address_city          {"あああああ"}
     address_street        {"あああああ"}
+    tel                   {"00000000000"}
   end
 end
