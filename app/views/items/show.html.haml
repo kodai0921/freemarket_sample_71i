@@ -14,101 +14,57 @@
             .FooterBox
               = link_to "#", class: "MainPhoto-Footer" do
                 = image_tag "material/pict/son3.jpeg"
-      .PriceBox
+      .ItemShowBox
         %table
           %thead
+            %tr.Top-tabel
+              %th.left 出品者
+              %th.TableName
+                アマ早
+                .btn-group
+                  = link_to "#" do
+                    %i.fa.fa-smile{ :style => "color: red"}> 63
+                  = link_to "#" do
+                    %i.fa.fa-meh{ :style => "color: orange"}> 0
+                  = link_to "#" do
+                    %i.fa.fa-frown{ :style => "color: blue"}> 63
+          %tbody
             %tr
-              %th ID
-              %th 名前
-              %th 作業時間
+              %th.left カテゴリー
+              %th メンズ
+          %tbody
             %tr
-          %thead
+              %th.left ブランド
+              %th Softbank
+          %tbody
+            %tr
+              %th.left 商品の状態
+              %th 新品同様
+          %tbody
+            %tr
+              %th.left 配送料の負担
+              %th 購入者負担
+          %tbody
+            %tr
+              %th.left 配送方法
+              %th 宅配便
+          %tbody
+            %tr
+              %th.left 発送元の地域
+              %th 福岡
+          %tbody
+            %tr
+              %th.left 発送日の目安
+              %th 翌日配送
+    .ItemPriceBox
+      .ItemPriceBox__P.right
+        %span.Price-B ¥
+        %span.Price-B 9,000
+      .ItemPriceBox__D.left
+        %span.Price-S (税込)
+        %span.Price-S 送料込み
+    = link_to "#" do
+      .ItemBuyBtn.b-radius
+        購入画面に進む
+        
 
-        -#   %tbody
-        -#     - @working_hours.each do |working_hour|
-        -#       - user = User.where(id:working_hour.user_id) #ここが合っているかわからない
-        -#       %tr
-        -#         %td= working_hour.user_id
-        -#         %td=
-        -#         %td=
-        -#       %tr
-        -#   %tbody
-        -# %table
-
-
-
-            
-
-
-
-
--# <table class="item-detail-table">
--#       <tbody><tr>
--#         <th>出品者</th>
--#         <td>
--#           <a href="https://www.mercari.com/jp/u/902097315/">あゆむ</a>
--#           <div>
--#                           <div class="item-user-ratings">
--#                 <i class="icon-good"></i>
--#                 <span>63</span>
--#               </div>
--#                           <div class="item-user-ratings">
--#                 <i class="icon-normal"></i>
--#                 <span>1</span>
--#               </div>
--#                           <div class="item-user-ratings">
--#                 <i class="icon-bad"></i>
--#                 <span>0</span>
--#               </div>
--#                       </div>
--#         </td>
--#       </tr>
--#       <tr>
--#         <th>カテゴリー</th>
--#         <td>
--#                     <a href="https://www.mercari.com/jp/category/2/"><div>メンズ</div></a>
--#                                 <a href="https://www.mercari.com/jp/category/33/">
--#               <div class="item-detail-table-sub-category"><i class="icon-arrow-right"></i> 靴</div>
--#             </a>
--#                     <a href="https://www.mercari.com/jp/category/345/">
--#             <div class="item-detail-table-sub-sub-category"><i class="icon-arrow-right"></i> スニーカー</div>
--#           </a>
--#         </td>
--#       </tr>
--#       <tr>
--#         <th>ブランド</th>
--#           <td>
--#                           <a href="https://www.mercari.com/jp/brand/857/">
--#                 <div>
--#                   ナイキ
--#                 </div>
--#               </a>
--#                       </td>
--#       </tr>
--#               <tr>
--#           <th>商品のサイズ</th>
--#           <td>28cm</td>
--#         </tr>
--#             <tr>
--#         <th>商品の状態</th>
--#         <td>新品、未使用</td>
--#       </tr>
--#       <tr>
--#         <th>配送料の負担</th>
--#         <td>送料込み(出品者負担)</td>
--#       </tr>
--#       <tr>
--#         <th>配送の方法</th>
--#         <td>らくらくメルカリ便</td>
--#       </tr>
--#               <tr>
--#           <th>配送元地域</th>
--#           <td>宮崎県</td>
--#         </tr>
-      
--#               <tr>
--#           <th>発送日の目安</th>
--#           <td>4~7日で発送</td>
--#         </tr>
-      
--#           </tbody></table>
