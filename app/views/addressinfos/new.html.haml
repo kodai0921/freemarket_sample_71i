@@ -1,0 +1,12 @@
+= form_with(model: @address, local: true) do |f|
+  = f.text_field :first_name, class: "name-css", placeholder: '例)山田'
+  = f.text_field :last_name, class: "name-css", placeholder: '例)彩'
+  = f.text_field :first_name_kana, class: "name-css", placeholder: '例)ヤマダ'
+  = f.text_field :last_name_kana, class: "name-css", placeholder: ' 例)サエ'
+  = f.text_field :postcode
+  = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, include_blank: '都道府県'
+  = f.text_field :address_city
+  = f.text_field :address_street 
+  = f.text_field :address_building
+  = f.text_field :tel
+  = f.submit "完了"
