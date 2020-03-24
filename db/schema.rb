@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_125249) do
+ActiveRecord::Schema.define(version: 2020_03_24_031721) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "addressinfos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
@@ -21,19 +28,12 @@ ActiveRecord::Schema.define(version: 2020_03_23_125249) do
     t.integer "prefecture_code", null: false
     t.string "address_city", null: false
     t.string "address_street", null: false
-    t.string "address_building", null: false
+    t.string "address_building"
+    t.string "tel"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "tel"
-    t.index ["user_id"], name: "index_addresses_on_user_id"
-ActiveRecord::Schema.define(version: 2020_03_20_114548) do
-
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addressinfos_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,5 +73,5 @@ ActiveRecord::Schema.define(version: 2020_03_20_114548) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
+  add_foreign_key "addressinfos", "users"
 end

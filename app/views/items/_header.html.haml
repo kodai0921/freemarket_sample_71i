@@ -25,7 +25,7 @@
           %li.ListLogOut__Item
             = link_to destroy_user_session_path, method: :delete do
               ログアウト
-            = link_to "住所登録", new_address_path(@address) 
+            = link_to "住所登録", new_addressinfo_path(@address) 
         - else
           %li.ListLeft__Item
             = link_to new_user_session_path do
