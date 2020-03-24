@@ -1,9 +1,28 @@
 
 * {
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
+  font-family: "Font Awesome 5 Free";
 }
+th {
+  width      : 210px;
+  font-weight: 600;
+  background : #fafafa;
+  padding    : 8px;
+}
+.Display {
+  display: flex;
+}
+.Price-B {
+  font-size  : 40px;
+  line-height: 60px;
+  font-weight: 600;
+}
+.Price-S {
+  font-size: 14px;
+}
+.b-radius {
+  border-radius: 10px 10px 10px 10px; 
+}
+
 
 
 @mixin ItemName($color: black){
@@ -12,6 +31,22 @@
   word-wrap  : break-word;
   line-height: 1.4;
 }
+@mixin PriceBox($color:white){
+  background-color: $color;
+  height          : 60px;
+  width           : 100%;
+  text-align      : center;
+}
+@mixin ItemBuyBtn {
+  height     : 60px;
+  width      : 100%;
+  font-size  : 24px;
+  line-height: 60px;
+  background : #ea352d;
+  text-align : center;
+}
+
+
 
 main {
   .ItemIntroduction {
@@ -34,22 +69,21 @@ main {
         display: flex;
         .PhotoBox {
           min-height: 300px;
-          width: 300px;
-          height: 100%;
-          
-          display: flex;
+          width     : 300px;
+          height    : 100%;
+          display   : flex;
           &__Inner{
             margin: 0 auto;
             &__Footer {
               line-height: 0;
-              display: flex;
+              display    : flex;
               .FooterBox {
-                width: 60px;
-                height: 60px;
+                width     : 60px;
+                height    : 60px;
                 max-height: none;
-                overflow: hidden;
-                opacity: 1;
-                cursor: default;
+                overflow  : hidden;
+                opacity   : 1;
+                cursor    : default;
                 a {
                   line-height: 60px;
                 }
@@ -57,19 +91,51 @@ main {
             }
           }
         }
-        .PriceBox {
-          min-height: 300px;
+        .ItemShowBox {
           width: 300px;
+          float: right;
           table {
-            float: right;
-            max-width: 300px;
-            height: 420px;
             margin: 0 auto;
-            
+            thead {
+              height: 50px;
+              .Top-tabel {
+                height: 60px;
+                .TableName {
+                  height: 100%;
+                }
+                .btn-group {
+                  display: flex;
+                  justify-content: space-around;
+                  a {
+                    display: flex; 
+                    font-size: 14px; 
+                  }
+                }
+              }
+            }
           }
+        }
+      }
+      .ItemPriceBox {
+        display: flex;
+        @include PriceBox;
+        &__P {
+          width : 310px;
+          margin: 0 16px 0 0;
+        }
+        &__D {
+          width      : 310px;
+          padding-top: 26px;
+        }
+      }
+      .ItemBuyBtn {
+        @include ItemBuyBtn;
+      }
+      a {
+        color :white;
+        .ItemBuyBtn {
         }
       }
     }
   }
 }
-
