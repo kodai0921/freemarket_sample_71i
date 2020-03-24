@@ -1,0 +1,23 @@
+.user-login
+  .user-login__header
+    = image_tag "material/logo/logo.png", class: "header-image-box"
+  .user-login__main
+    .user-login__main__box
+      .user-login__main__box__header
+        = link_to new_user_registration_path,class: 'user-login__main__box__header__link' do
+          .user-login__main__box__header__link__title
+            .text
+              新規会員登録
+            
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .login-form
+          .field
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'field__email', placeholder: 'メールアドレス'
+          .field
+            = f.password_field :password, autocomplete: "current-password", class: 'field__password', placeholder: 'パスワード'
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .field
+            = f.submit "ログイン",class: 'login-btn'
