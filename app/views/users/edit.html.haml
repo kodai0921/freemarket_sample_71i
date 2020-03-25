@@ -1,0 +1,32 @@
+= render partial: "items/header"
+
+%nav.user_name
+  %ul
+    %li
+      %a
+      =link_to "https://www.mercari.com/jp/" do
+        メルカリ
+      %i.right_arrow
+      = icon('fas', 'angle-right')  
+    %li
+      %a
+      =link_to "https://www.mercari.com/jp/" do
+        name
+      %i.right_arrow
+      = icon('fas', 'angle-right')  
+    %li
+      %span
+        ログアウト
+
+%main.logout_body
+  .logout_main
+    .logout_main__box
+      %button.logout_main__box__content{:type =>"submit", :onclick =>"location.href='#'"}
+        ログアウト
+
+
+
+
+
+
+= render partial: "items/footer"
