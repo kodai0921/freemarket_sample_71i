@@ -309,7 +309,7 @@ main {
         .contents{
           display: flex;
           justify-content: space-around;
-          // padding: 0 250px;
+
           &__content{
             text-decoration: none;
             img{
@@ -337,7 +337,7 @@ main {
         .contents{
           display: flex;
           justify-content: space-around;
-          // padding: 0 250px;
+
           &__content{
             text-decoration: none;
             img{
@@ -348,8 +348,10 @@ main {
               margin: 0;
               color: black;
             }
-            .second{
-              float: left;
+            .money {
+              display: flex;
+              justify-content: space-between;
+              padding: 0 10px;
             }
             .star{
               float: right;
