@@ -2,10 +2,11 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+@import 'mixin';
 @import "header";
 @import "footer";
+@import "user";
+
 @import "item/items";
 @import "item/new";
 @import "item/show";
-@import "user";
-

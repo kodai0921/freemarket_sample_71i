@@ -39,38 +39,6 @@ th {
 
 
 
-@mixin Contents($background-color: white){
-  width           : 700px;
-  margin          : 0px auto;
-  padding         : 24px 40px 40px;
-  margin-top      : 10px;
-  background-color: $background-color;
-}
-@mixin ItemName($color: black){
-  font-size  : 24px;
-  text-align : center;
-  word-wrap  : break-word;
-  line-height: 1.4;
-}
-@mixin PriceBox($color:white){
-  background-color: $color;
-  height          : 60px;
-  width           : 100%;
-  text-align      : center;
-}
-@mixin ItemBuyBtn {
-  height     : 60px;
-  width      : 100%;
-  font-size  : 24px;
-  line-height: 60px;
-  background : #ea352d;
-  text-align : center;
-}
-@mixin hover ($color:darkred) {
-  background-color: $color;
-  transition      : all  0.3s ease;
-}
-
 
 main {
   .ItemIntroduction {
