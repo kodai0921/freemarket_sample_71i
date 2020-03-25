@@ -1,0 +1,15 @@
+/*
+$(function(){
+  $('.ListsLeft__Categories').hover(
+    function(){
+      $(this).find('.category-box');
+      $('.category-box').addClass('text-active');
+      $('')
+    },
+    function(){
+      $(this).find('.category-box');
+      $('.category-box').removeClass('text-active');
+    }
+  );
+});
+*/

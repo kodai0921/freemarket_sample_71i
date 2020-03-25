@@ -83,7 +83,7 @@
             .Formfield-Prefectures.Required
               %label.Glay 発送元の地域
               .redbox 必須
-            .Formfield-Prefectures__Input
+            .Formfield-Prefectures-Input
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
             %p.red 選択して下さい。
           .DescriptionDelivery__Inner__Day.Required

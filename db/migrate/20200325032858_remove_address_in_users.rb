@@ -1,4 +1,4 @@
-class RemoveColumnsInUsers < ActiveRecord::Migration[5.2]
+class RemoveAddressInUsers < ActiveRecord::Migration[5.2]
   def change
     remove_column :users, :postcode, :integer
     remove_column :users, :prefecture_code, :integer
