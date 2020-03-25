@@ -35,21 +35,9 @@
           .DescriptionItemShow__Inner__Categories.Required
             %label.Glay カテゴリ
             .redbox 必須
-          %select.InputBox1{:name => "Categories"}
-            %option{:value => "0"}  選択してください
-            %option{:value => "1"}  レディース
-            %option{:value => "2"}  メンズ
-            %option{:value => "3"}  ベビー
-            %option{:value => "4"}  インテリア
-            %option{:value => "5"}  ゲーム
-            %option{:value => "6"}  おもちゃ
-            %option{:value => "7"}  コスメ
-            %option{:value => "8"}  家電
-            %option{:value => "4"}  スポーツ
-            %option{:value => "5"}  ハンドメイド
-            %option{:value => "6"}  チケット
-            %option{:value => "7"}  その他
-            %option{:value => "8"}  天早
+          .category-ancestry  
+            = form_for '#' do |f|
+              = f.select :category, @category_parent_array, {prompt: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
           %p.red 選択して下さい。
           .DescriptionItemShow__Inner__Categories.Required
             %label.Glay ブランド
