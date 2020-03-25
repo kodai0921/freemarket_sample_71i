@@ -1,0 +1,89 @@
+.user-register
+  .header
+    = image_tag "material/logo/logo.png",class: 'image-box'
+  .main-wrapper
+    .main-wrapper__fields
+      .main-header
+        .main-header__title
+          会員情報入力
+      = form_for(resource,as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .main-content
+          .field
+            .top-text
+              .text-title
+                ニックネーム
+              .important
+                必須
+            = f.text_field :nickname, autofocus: true, class: "text-css",placeholder: '例)フリマ太郎'
+          .field
+            .top-text
+              .text-title
+                メールアドレス
+              .important
+                必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-css",placeholder: 'PCと携帯どちらでも可'
+          .field
+            .top-text
+              .text-title
+                パスワード
+              .important
+                必須
+            = f.password_field :password, autocomplete: "new-password", class: "text-css",placeholder: '7文字以上の半角英数字'
+
+            .field__text1
+              ＊英字と数字の両方をふくめて設定してください
+          .field
+            .top-text
+              .text-title
+                パスワード確認
+              .important
+                必須
+            .field-input
+              = f.password_field :password_confirmation, autocomplete: "off", class: "text-css",placeholder: 'パスワード確認'
+          .field
+            .text-title
+              本人確認
+            .field__text2
+              安心安全にご利用いただくために、お客様の本人情報の登録にご協力くださいください。他のお客様に公開されることはありません。
+          .field
+            .field__name-box
+              .name-text-top
+                .name
+                  お名前(全角)
+                .name-important
+                  必須
+              = f.text_field :first_name, class: "name-css", placeholder: '例)山田'
+              = f.text_field :last_name, class: "name-css", placeholder: '例)彩'
+            %br/
+            .field__name-box
+              .name-text-top
+                .name
+                  お名前カナ(全角)
+                .name-important
+                  必須
+              = f.text_field :first_name_kana, class: "name-css", placeholder: '例)ヤマダ'
+              = f.text_field :last_name_kana, class: "name-css", placeholder: ' 例)サエ'
+          .field
+            .birth-text-top
+              .text-birth-date
+                生年月日
+              .birth-important
+                必須
+            != sprintf(f.date_select(:birth_date ,with_css_classes:'birth-date' , prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s') ,'年','月')+'日'
+            .field__birth-text
+              ＊本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
+          .tel
+            .tel__box
+              .tel__box__top
+                電話番号
+              .tel__box__text
+                必須
+            = f.text_field :tel, class: "tel__number"
+          = f.submit "完了",class: 'end-btn'
+          %button{class: "back"}
+            戻る
+      .next-box
+        .next-box__text
+          次へ進む
+

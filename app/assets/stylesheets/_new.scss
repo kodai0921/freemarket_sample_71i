@@ -1,0 +1,362 @@
+// 共通パーツ
+body {
+  position: relative;
+  min-height: 100%;
+  color: rgb(51, 51, 51);
+  background-color: rgb(245, 245, 245);
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+p {
+  display: block;
+  margin-block-start: 5px;
+  margin-block-end: 5px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.Space {
+  padding: 40px;
+}
+.right {
+  text-align: right;
+}
+
+// ここまで共通パーツ
+// 工事中
+@mixin required($height: 20px){
+  height     : $height;
+  line-height: 20px;
+  display    : flex;
+
+}
+@mixin box-size($size: 48px){
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  height: $size;
+  margin-top: 5px;
+  outline: none;
+  padding: 0 16px;
+  width: 100%;
+}
+@mixin font($color: black){
+  height     : 20px;
+  font-size  : 14px;
+  color      : $color;
+  font-weight: 600;
+  line-height: 20px;
+}
+@mixin font-box($color: #bfbfbf) {
+  margin-left  : 8px;
+  font-size    : 12px;
+  padding      : 0 4px;
+  background-color: $color;
+  color        : #fff;
+  border-radius: 2px;
+  font-weight  : 600;
+  line-height  : 20px;
+}
+@mixin select($size: 50px) {
+  box-sizing: border-box;
+  width: 620px;
+  height: $size;
+  padding: 10px 16px 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+@mixin priceinput {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  height: 50px;
+  width: 250px;
+  margin: 0;
+  outline: none;
+  padding: 0 16px;
+  text-align: right;
+}
+@mixin space {
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: content-box;
+  display: flex;
+  height: 50px;
+}
+@mixin Button($color: rgb(214, 30, 30)) {
+  font-size: 17px;
+  min-height: 48px;
+  background-color: $color;
+  margin-bottom: 24px;
+  padding: 0 24px;
+}
+
+
+
+// ここまで工事中
+.redbox {
+  @include font-box($color: red);
+}
+.glaybox {
+  @include font-box;
+}
+.Glay {
+  @include font($color: rgb(136, 136, 136));
+  margin-bottom: 24px;
+}
+.Black {
+  @include font;
+  margin-top : 5px;
+
+}
+.red {
+  @include font($color: red);
+}
+.InputBox1 {
+  @include box-size;
+}
+.InputBox2 {
+  @include box-size($size: 150px);
+}
+select {
+  @include select;
+}
+.Required {
+  @include required
+}
+
+
+
+
+
+main {
+  .ItemExhibition {
+    display       : flex;
+    flex-direction: column;
+    min-height    : 100vh;
+    // ここからヘッダー
+    &__Header {
+      height           : 128px;
+      -webkit-box-align: center;
+      align-items      : center;
+      display          : flex;
+      -webkit-box-pack : center;
+      justify-content  : center;
+      &__Icon {
+        height: 49px;
+        width : 185px;
+      }
+    }
+    // ここからメイン全体の設定
+    &__Contents {
+      width           : 700px;
+      margin          : 0px auto;
+      min-height      : 100vh;
+      background-color: white;
+      &__Inner {
+        vertical-align: baseline;
+        margin        : 0;
+        padding       : 0;
+        border-width  : 0px;
+        font          : inherit;
+        // ①画像アップロード
+        .ItemImage {
+          height        : 300px;
+          vertical-align: baseline;
+          border-bottom: 5px solid rgb(245, 245, 245);
+          &__Title {
+            label {
+              font-size  : 14px;
+              font-weight: 600;
+              line-height: 20px;
+            }
+          }
+          .ImageBox {
+            align-content    : center;
+            -webkit-box-align: center;
+            align-items      : center;
+            background-color: rgb(245, 245, 245);
+            cursor           : pointer;
+            display          : flex;
+            height           : 70%;
+            flex-wrap        : wrap;
+            -webkit-box-pack : center;
+            justify-content  : center;
+            position         : relative;
+            border-width     : 1px;
+            border-style     : dashed;
+            border-color     : rgb(204, 204, 204);
+            border-image     : initial;
+            transition       : all 0.5s ease-out 0s;
+            label {
+              text-align: center;
+            
+              input {
+                display      : none;
+                margin-bottom: 8px;
+              }
+              pre {
+                font-size  : 12px;
+                line-height: 1.4em;
+                text-align : center;
+                width      : 100%;
+              }
+            }
+          }
+        }
+        // 商品名・商品の説明
+        .DescriptionItem {
+          padding      : 40px;
+          border-bottom: 5px solid rgb(245, 245, 245);
+          &__Inner {
+            margin-bottom: 20px;
+          }
+          .WordCount {
+            color      : #888;
+            font-size  : 12px;
+            line-height: 1.4em;
+            text-align : right;
+          }
+        }
+        // 商品の状態
+        .DescriptionItemShow {
+          padding      : 40px;
+          border-bottom: 5px solid rgb(245, 245, 245);
+          &__Inner {
+            margin-bottom: 20px;
+            &__Categories {
+              margin-top: 20px;
+            }
+          }
+        }
+        // 発送について
+        .DescriptionDelivery {
+          padding      : 40px;
+          border-bottom: 5px solid rgb(245, 245, 245);
+          &__Inner {
+            margin-bottom: 20px;
+            &__Categories {
+              margin-top: 20px;
+            }
+            &__Formfield {
+              margin-top: 20px;
+              width     : 100%;
+            }
+            &__Day {
+              margin-top: 20px;
+            }
+          }
+        }
+        // 価格
+        .DescriptionPrice {
+          padding      : 40px;
+          border-bottom: 5px solid rgb(245, 245, 245);
+          &__Inner {
+            margin-bottom: 20px;
+          }
+          .PriceBox {
+            height         : 50px;
+            width          : 100%;
+            display        : flex;
+            justify-content: space-between;
+            &__Lavel {
+              display: flex;
+              padding: 15px 0;
+            }
+            .Mark {
+              font-size  : 14px;
+              line-height: 50px;
+            }
+            &__Range {
+              padding-right: 0;
+              &__Inner {
+                display: inline-block;
+                width  : inherit;
+                input {
+                  @include priceinput;
+                }
+              }
+            }
+          }
+          p {
+            @include font($color: rgb(165, 38, 38));
+            text-align: right;
+          }
+          .PriceMargin {
+            @include space;
+            margin-bottom: 40px;
+            &__Lavel {
+              line-height : 50px;
+              margin-right: auto;
+              padding     : 12px 0px;
+              white-space : nowrap;
+              display     : flex;
+
+            }
+          }
+          .Button-Area {
+            margin: 0px auto 24px;
+            &__Inner {
+              padding      : 0 150px;
+              margin-bottom: 32px;
+              border       : 1px solid transparent;
+              .redbutton {
+                width           : 100%;
+                background-color: rgb(216, 33, 33);
+                border-radius   : 4px;
+                p {
+                  font-size : 17px;
+                  color     : #fff;
+                  text-align: center;
+                }
+              }
+              .glaybutton {
+                width           : 100%;
+                background-color: rgb(136, 136, 136);
+                border-radius   : 4px;
+                p {
+                  font-size : 17px;
+                  color     : white;
+                  text-align: center;
+                }
+              }
+            }
+          }
+          .Nate {
+            p {
+              color     : black;
+              font-size : 12px;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    &__Footer {
+      margin: 50px 0;
+      -webkit-box-align: center;
+      align-items      : center;
+      -webkit-box-pack : center;
+      justify-content  : center;
+      &__Notation {
+        p {
+          font-size: 10px;
+          text-align: center;
+        }
+      }
+      &__Icon {
+        width : 185px;
+        margin           : 0 auto;
+      }
+    }
+  }
+}
+

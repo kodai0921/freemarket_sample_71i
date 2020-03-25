@@ -3,7 +3,7 @@
     .Header__Inner__Main
       %h1.Icon
         = link_to "#" do
-          = image_tag "material/logo/logo.png"
+          = image_tag asset_path("material/logo/logo.png")
       .SearchBox
         %form
           %input{:name => "utf8", :type => "hidden", :value => "✓"}/
@@ -21,9 +21,16 @@
           = link_to "#" do
             ブランド
       %ul.ListRight
-        %li.ListLeft__Item
-          = link_to "#" do
-            ログイン
-        %li.ListRight__Item
-          = link_to "#" do
-            新規登録
+        - if user_signed_in?
+          %li.ListLogOut__Item
+            = link_to destroy_user_session_path, method: :delete do
+              ログアウト
+            = link_to "住所登録", new_addressinfo_path(@address) 
+        - else
+          %li.ListLeft__Item
+            = link_to new_user_session_path do
+              ログイン
+          %li.ListRight__Item
+            = link_to new_user_registration_path do
+              新規登録
+          
