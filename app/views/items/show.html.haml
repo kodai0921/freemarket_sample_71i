@@ -66,5 +66,53 @@
     = link_to "#" do
       .ItemBuyBtn.b-radius
         購入画面に進む
-        
+    .ItemBox
+      %p.ItemBox__Inner 海外正規店購入  
+      %p.ItemBox__Inner 新品、未使用品です。納品書も同梱します。 
+      %p.ItemBox__Inner 他サイトにも出品中のため 急に出品を取り下げることもあります。 よろしくお願いします。
+      %P.ItemBox__Inner 時々高級食材を食べたがります。
 
+      
+    .Item-Button-Container
+      .Item-Button-Container__Left
+        = link_to "#", class: "IineBtn" do
+          %i.fa.fa-thumbs-up{ :style => "color: red"}
+          %p いいね！
+
+      .Item-Button-Container__Center
+        = link_to "#", class: "TuhouBtn" do
+          %i.fa.fa-hand-middle-finger{ :style => "color: black"}
+          %p 通報
+      
+      .Item-Button-Container__Right
+        = link_to "#", class: "AnshinBtn" do
+          %i.fas.fa-lock{:style => "color: black"}
+          %p 安心・安全への取り込み
+
+  .ItemIntroduction__Comments
+    .ItemIntroduction__Comments__text
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .form
+      = form_for "#" do |f|
+        = f.text_field :text, placeholder: "コメント待つ", class: 'InputBox2'
+        = f.submit "コメントする", class: 'Submit-Btn'
+
+  .ItemIntroduction__Menuber
+    .ItemIntroduction__Menuber__Left
+      = link_to "#" do
+        %p <<　天早と秘密の部屋
+    .ItemIntroduction__Menuber__Right
+      = link_to "#" do
+        %p 天早とSoftbankの関係性　>>
+  
+  .ItemIntroduction__SnsBox
+    .ItemIntroduction__SnsBox__Inner
+      = link_to "https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fshare.php%3Fu%3Dhttps%253A%252F%252Fwww.mercari.com%252Fjp%252Fitems%252Fm85283253581%252F&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ja_JP", class: "FaceBtn" do
+        %i.fab.fa-facebook-square{:style => "color: white"}
+      = link_to "https://twitter.com/Maeda66277577", class: "TwitterBtn" do
+        %i.fab.fa-twitter{:style => "color: white"}
+      = link_to "https://line.me/ja/", class: "LineBtn" do
+        %i.fab.fa-line{:style => "color: white"}
+  
+  .ItemIntroduction__Items
+      .PhotoBox
