@@ -228,7 +228,6 @@
         color: #3CCACE;
         margin-top: 0;
       }
-
     }
     .contents{
       display: flex;
@@ -237,21 +236,16 @@
       &__content{
         text-decoration: none;
         border: solid 1px black;
-        img{
-        }
         p{
           margin: 0;
           color: black;
-
         }
         .second{
           float: left;
         }
         .star{
           float: right;
-
         }
-
       }
     }
   }

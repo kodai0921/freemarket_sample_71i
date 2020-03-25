@@ -115,4 +115,85 @@
         %i.fab.fa-line{:style => "color: white"}
   
   .ItemIntroduction__Items
-      .PhotoBox
+    .ItemIntroduction__Items__1row
+      %h1 アマ天さんの他のアイテム
+      .contents
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/son1.jpeg"
+          %p 天羽屋
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/son1.jpeg"
+          %p ソンさん
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/drink1.jpg"
+          %p 炭酸水
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+    .ItemIntroduction__Items__1row.Top
+      .contents
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk.jpg"
+          %p マスク
+          .money
+            %p.second
+              4770円(税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk2.jpg"
+          %p マスク
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk3.jpg"
+          %p マスク
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+    .ItemIntroduction__Items__2row.Top
+      %h1 その他の出品者のアイテム
+      .contents
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk.jpg"
+          %p マスク ※一点限り
+          .money
+            %p.second
+              570円(税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk2.jpg"
+          %p マスク ※最後の一点
+          .money
+            %p.second
+              730円（税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk3.jpg"
+          %p マスク
+          .money
+            %p.second
+              770円（税込み)
+            %p.star ★1
+
+
+  .ItemIntroduction__Categories
+    .ItemIntroduction__Categories__List
+      = link_to "#" do
+        メルカリ
+      .text >
+      .text 孫正義
+  
+  = render partial: "footer"
+

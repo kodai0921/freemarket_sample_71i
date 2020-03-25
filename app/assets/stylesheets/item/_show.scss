@@ -33,15 +33,18 @@ th {
 .FaceBtn {
   color :#365899;
 }
+.Top {
+  padding-top: 10px;
+}
 
 
 
-@mixin Contents($height: 100vh){
+@mixin Contents($background-color: white){
   width           : 700px;
   margin          : 0px auto;
   padding         : 24px 40px 40px;
   margin-top      : 10px;
-  background-color: white;
+  background-color: $background-color;
 }
 @mixin ItemName($color: black){
   font-size  : 24px;
@@ -323,7 +326,86 @@ main {
       }
     }
     &__Items {
-      
+      @include Contents($background-color: whitesmoke);
+      margin: 24px auto 70px;
+      padding: 0 0 24px 0;
+      width: 700px;
+      &__1row{
+        h1{
+          text-align: left;
+          p{
+            color: #3CCACE;
+            margin-top: 0;
+          }
+        }
+        .contents{
+          display: flex;
+          justify-content: space-around;
+          // padding: 0 250px;
+          &__content{
+            text-decoration: none;
+            img{
+              height: 225px;
+              width: 225px;
+            }
+            p{
+              margin: 0;
+              color: black;
+            }
+            .money {
+              display: flex;
+              justify-content: space-between;
+              padding: 0 10px;
+            }
+            .second{
+              float: left;
+            }
+          }
+        }
+      }
+
+      &__2row{
+        background-color: whitesmoke;
+        .contents{
+          display: flex;
+          justify-content: space-around;
+          // padding: 0 250px;
+          &__content{
+            text-decoration: none;
+            img{
+              height: 225px;
+              width: 225px;
+            }
+            p{
+              margin: 0;
+              color: black;
+            }
+            .second{
+              float: left;
+            }
+            .star{
+              float: right;
+            }
+          }
+        }
+      }
+    }
+    &__Categories {
+      background-color: whitesmoke;
+      border-top: 1px solid lightgray;
+      &__List {
+        padding: 20px 80px;
+        text-align: left;
+        display: flex;
+      }
+      a {
+        padding-right: 10px;
+        color: black;
+      }
+      .text {
+        font-weight: 600;
+        padding: 0 10px;
+      }
     }
   }
 }
