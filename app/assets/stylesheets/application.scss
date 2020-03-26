@@ -1,10 +1,18 @@
+
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+@import 'mixin';
 @import "header";
-@import "items";
 @import "footer";
-@import "new";
+
+@import "users";
+
+
+
 @import "user";
 @import "purchases";
 
+@import "item/items";
+@import "item/new";
+@import "item/show";

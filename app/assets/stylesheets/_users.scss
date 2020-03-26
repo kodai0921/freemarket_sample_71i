@@ -1,0 +1,318 @@
+#pic1 {
+  height: 230px;
+  width: 230px;
+
+}
+
+.user_name{
+  height: 49px;
+  position: relative;
+  border-top: 1px solid #eee;
+  background: #f5f5f5;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  z-index: 1;
+  ul{
+    display: flex;
+    list-style: none;
+    padding:15px 191px;
+
+    li{
+      a{
+        padding-right: 8px;
+        color: rgb(90, 86, 86);
+        text-decoration: none;
+        font-size:12px
+      }
+      
+      span{
+        padding:2px 8px;
+        font-size:13px
+      }
+    }
+
+    i{
+      font-size: 14px;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f054";
+      color: rgb(90, 86, 86);
+    }
+  }
+}
+
+
+
+
+.user_body{
+  display: flex;
+  background-color:#eeeeee;
+
+  &__settings{
+    
+    width: 280px;
+    height: 352px;
+    margin: 40px 0px 600px 100px;
+    &__title{
+      font-size: 20px;
+    }
+
+    
+
+    
+    .setting_list{
+      list-style: none;
+      li{
+        width: 280px;
+        height: 48px;
+        padding-top: 10px;
+      }
+      &__contents{
+        height: 48px;
+        padding: 0.5em 1em;
+        margin: 2em 0;
+        color: #5d627b;
+        background: white;
+        border-top: solid 1px #5d627b;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+        a{
+          text-decoration: none;
+        }
+          &__box{
+          display: flex;
+          justify-content: space-between;
+          &__name{
+            font-size: 13px;
+            color: black;
+          }
+          &__icon{
+            color: rgb(180, 175, 175);
+          }
+        } 
+      }
+    }
+    
+
+  }
+  &__user_main{
+  
+    height: 957px;
+    width: 700px;
+    margin: 40px;
+    background-color: white;
+    .user_data{
+      background: url("material/pict/pict-reason-03.jpg");
+      height     : 323px;
+      padding-top: 15px;
+      width      : 100%;
+      background-color:#ffffcc;
+      &__box1{
+        
+        top: 100px;
+        text-align: center;
+        &__name{
+          padding-top: 2px;
+          a{
+            color: #333333;
+            font-size: 17px;
+            text-decoration: none;
+          }
+        }
+        &__contents{
+          padding: 15px 20px;
+          color   : black;
+          text-align: center;
+          .good{
+            padding-right: 30px;
+          }
+        }
+      } 
+    }
+    .good_assessment{
+      background-color: white;
+      &__all{
+        height: 50px;
+        padding-top: 14px;
+        width: 570px;
+        text-align: center;
+        margin-left: 170px;
+        display: flex;
+        div{
+          padding-right: 30px;
+          display: flex;
+        }
+        .icon_boxes1{
+          font-size: 26px;
+          font-family: "Font Awesome 5 Free";
+          padding: 0px 10px;
+          color:#ff55ff;
+          i{
+            padding-right: 50px;
+          }
+        }
+        .icon_boxes2{
+          font-size: 26px;
+          font-family: "Font Awesome 5 Free";
+          padding: 0px 10px;
+          color:#ff9900;
+          i{
+            padding-right: 50px;
+          }
+        }
+        .icon_boxes3{
+          font-size: 26px;
+          font-family: "Font Awesome 5 Free";
+          padding: 0px 10px;
+          color:#3399ff;
+          i{
+            padding-right: 50px;
+          }
+        }
+        .number{
+          color: black;
+          font-size: 15px;
+        }
+      }
+    }
+  
+    .social_kink{
+      
+      margin: 24px auto;
+      padding: 25px 270px 25px;
+      width: 700px;
+      .social_kink_box{
+        list-style: none;
+        display:flex;
+        margin: 16px 0 0;
+        text-align: center;
+        font-size: 0;
+        
+        .social_link_icon1{
+          
+          font-size: 40px;
+          font-weight: 400;
+          i{
+            font-size: 50px;
+            color:#003366;
+          }
+        }
+        .social_link_icon2{
+          margin-left:8px;
+          font-size: 40px;
+          font-weight: 400;
+          i{
+            font-size: 50px;
+            color:#3399cc;
+          }
+        }
+        .social_link_icon3{
+          margin-left:8px;
+          font-size: 40px;
+          font-weight: 400;
+          i{
+            font-size: 50px;
+            color:#33cc00;
+          }
+        }
+      }
+    }
+    
+    .exhibition_list{
+      width: 200;
+      height:412px;
+      
+      h1{
+        width: auto;
+        height: 30px;
+        font-size: 22px;
+      }
+      &__box{
+        height: 370px;
+        width: 700px;
+        display: flex; 
+        .item_box1{
+          background-color:white;
+          height: 330px;
+          width: 220px;
+          margin: 0px 0px 20px;
+          cursor: pointer;
+          &__body{
+            width: 220px;
+            padding: 16px;
+            height: 110px;
+            h2{
+              word-wrap: break-word;
+              overflow: hidden;
+            }
+            &__price{
+              display: flex;
+              justify-content: space-between;
+              padding-top: 20px;
+              i{
+                font-size: 18px;
+                color: #bebcbc;
+              }
+            }
+          }
+    
+        }
+        .item_box2{
+          background-color:white;
+          height: 330px;
+          width: 220px;
+          margin: 0px 0px 20px 20px;
+          cursor: pointer;
+          &__body{
+            width: 220px;
+            padding: 16px;
+            height: 110px;
+            h2{
+              word-wrap: break-word;
+              overflow: hidden;
+            }
+            &__price{
+              display: flex;
+              justify-content: space-between;
+              padding-top: 20px;
+              i{
+                font-size: 18px;
+                color:#bebcbc;
+              }
+            }
+          }
+    
+        }
+
+      }
+    }
+  }
+}
+
+.logout_body{
+  background-color:rgb(238, 236, 236);
+  height: 310px;
+  .logout_main{
+    max-width: 1020px;
+    
+    &__box{
+      height: 179px;
+      max-width: 700px;
+      background-color:white;
+      float: right;
+      margin-top:65px;
+      padding: 64px;
+      &__content{
+        background-color:#ea352d;
+        width: 572px;
+        height: 50px;
+        color: white;
+        font-size: 13px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+
