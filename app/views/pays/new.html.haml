@@ -1,0 +1,52 @@
+= render partial: "items/header"
+.user-pays
+  .user-pays__title
+    %p クレジットカード情報
+  .user-pays__main
+    = form_for "#" do |f|
+      -# = render "devise/shared/error_messages", resource: resource
+      .user-pays__main__content
+        .field
+          .top-text
+            .text-title
+              カード番号
+            .important
+              必須
+          = f.text_field :card_number, autofocus: true, class: "card_number",placeholder: '半角数字のみ'
+        .user-pays__card-list
+          .icon-visa
+            = image_tag "pays/visa.svg" 
+          .icon-master-card
+            = image_tag "pays/master-card.svg" 
+          .icon-saison-card
+            = image_tag "pays/saison-card.svg" 
+          .icon-jcb
+            = image_tag "pays/jcb.svg" 
+          .icon-american_express
+            = image_tag "pays/american_express.svg" 
+          .icon-dinersclub
+            = image_tag "pays/dinersclub.svg" 
+          .icon-discover
+            = image_tag "pays/discover.svg" 
+        .field
+          .top-text
+            .text-title
+              有効期限
+            .important
+              必須
+        .card-date
+          != sprintf(f.date_select(:expiration_date,with_css_classes:'card-date', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+        .field
+          .top-text
+            .text-title
+              セキュリティーコード
+            .important
+              必須
+          = f.text_field :card_number, autofocus: true, class: "card_number",placeholder: 'カード背面4桁もしくは3桁の番号'
+        .card
+          .card-icon ?
+          .card-text
+            カード裏面の番号とは?
+    .next-box
+      .next-box__text
+        追加する

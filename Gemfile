@@ -69,7 +69,7 @@ gem "haml-rails"
 gem "erb2haml"
 gem "ancestry"
 group :production do
-  gem 'unicorn', '5.4.1'
+gem 'unicorn', '5.4.1'
 end
 gem 'font-awesome-sass'
 gem 'active_hash'
