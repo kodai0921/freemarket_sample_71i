@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create, :show]
 
   resources :addressinfos, only: [:new, :create]
+  resources :purchases, only: [:new]
 
 end
