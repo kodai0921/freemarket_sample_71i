@@ -1,0 +1,124 @@
+= render partial: "items/header"
+
+%nav.user_name
+  %ul
+    %li
+      %a
+      =link_to "https://www.mercari.com/jp/" do
+        メルカリ
+      %i.right_arrow
+      = icon('fas', 'angle-right')  
+    %li
+      %span
+        name
+
+.user_body
+  .user_body__settings
+    .user_body__settings__title
+      アカウント設定
+    %ul.setting_list
+      %li
+        .setting_list__contents
+          = link_to "#" do
+            .setting_list__contents__box
+              .setting_list__contents__box__name
+                ログアウト
+              .setting_list__contents__box__icon
+                = icon('fas', 'angle-right')  
+      %li
+        .setting_list__contents
+          = link_to "#" do
+            .setting_list__contents__box
+              .setting_list__contents__box__name
+                クレジットカード新規登録/編集
+              .setting_list__contents__box__icon
+                = icon('fas', 'angle-right')
+      
+      
+  .user_body__user_main
+    .user_data
+      .user_data__box1
+        = link_to "https://www.mercari.com/jp/u" do
+          = image_tag "material/icon/user_icon.png", id: "pic1"
+        .user_data__box1__name
+          = link_to "https://www.mercari.com/jp/u" do
+            name
+        .user_data__box1__contents
+          %span.good
+            評価 30
+          %span
+            出品数 30
+    .good_assessment
+      .good_assessment__all
+        .icon_boxes1
+          = icon("fas", "laugh")
+          .number
+            3
+        .icon_boxes2
+          = icon("fas", "meh")
+          .number
+            2
+        .icon_boxes3
+          = icon("fas", "frown")
+          .number
+            1
+        
+    .social_kink
+      %ul.social_kink_box
+        %li.social_link_icon1
+          =link_to "https://facebook.com/" do
+            = icon('fab', 'facebook-square')
+        %li.social_link_icon2
+          =link_to "https://twitter.com/" do
+            = icon('fab', 'twitter-square')
+        %li.social_link_icon3
+          =link_to "https://line.me/ja/" do
+            = icon('fab', 'line')
+
+    %section.exhibition_list
+      %h1.exhibition_list__head
+        この出品者の商品
+      .exhibition_list__box
+        %section.item_box1
+          .item_box1__photo
+          = image_tag 'material/pict/pict-reason-03.jpg'
+          .item_box1__body
+            %h2.item_box1__body__name
+              eeeeeeeeeeeeeeeeeeeeeeeee
+            .item_box1__body__price
+              %div.item_price
+                ¥1,000
+              %div.heart_mark
+                = icon('far', 'heart')
+                %span
+                  1
+        %section.item_box2
+          .item_box2__photo
+          = image_tag 'material/pict/pict-reason-03.jpg'
+          .item_box2__body
+            %h2.item_box2__body__name
+              eeeeeeeeeeeeeeeeeeeeeeeee
+            .item_box2__body__price
+              %div.item_price
+                ¥1,000
+              %div.heart_mark
+                = icon('far', 'heart')
+                %span
+                  1
+        %section.item_box2
+          .item_box2__photo
+          = image_tag 'material/pict/pict-reason-03.jpg'
+          .item_box2__body
+            %h2.item_box2__body__name
+              eeeeeeeeeeeeeeeeeeeeeeeee
+            .item_box2__body__price
+              %div.item_price
+                ¥1,000
+              %div.heart_mark
+                = icon('far', 'heart')
+                %span
+                  1
+
+= render partial: "items/footer"
+
+
