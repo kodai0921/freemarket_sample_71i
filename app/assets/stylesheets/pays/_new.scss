@@ -21,7 +21,7 @@
 
   }
   &__main {
-    min-height: 100vh;
+    min-height: auto;
     width: 100%;
     padding: 40px 150px 64px;
 
@@ -47,7 +47,7 @@
           }
         }
 
-        .card_number {
+        .number {
           width: 343px;
           height: 48px;
           margin: 8px 0 0;
@@ -62,8 +62,25 @@
       }
       .card-date {
         display: flex;
+        align-items: center;
         width: 300px;
-        
+        #exp_month{
+          width: 131.5px;
+          height: 50px;
+          background-color: white;
+        }
+        .month-text-box{
+          margin-right: 20px;
+          margin-left: 20px;
+        }
+        #exp_year{
+          width: 131.5px;
+          height: 50px;
+          background-color: white;
+        }
+        .year-text-box{
+          margin-left: 20px;
+        }
       }
 
       .user-pays__card-list {
@@ -85,6 +102,20 @@
         margin-bottom: 10px;
         display: none;
       }
+    }
+
+    #cvc{
+      width: 343px;
+      height: 48px;
+      margin: 8px 0 0;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: inherit;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin-bottom: 50px;
     }
     .card {
       display: flex;
@@ -118,8 +149,16 @@
         text-align: center;
         line-height: 50px;
         color: white;
-        
       }
+    }
+
+    #token_submit{
+      width: 328px;
+      height: 50px;
+      background-color: #ea352d;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 28px;
     }
   }
 }

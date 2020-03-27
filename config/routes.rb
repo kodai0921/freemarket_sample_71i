@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :pays, only: [:new, :show] do
     collection do
-      post 'show', to: 'card#show'
-      post 'pay', to: 'card#pay'
-      post 'delete', to: 'card#delete'
+      post 'show', to: 'pays#show'
+      post 'pay', to: 'pays#pay'
+      post 'delete', to: 'pays#delete'
     end
   end
 

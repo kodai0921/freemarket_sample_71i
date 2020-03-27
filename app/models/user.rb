@@ -19,4 +19,5 @@ class User < ApplicationRecord
   validates :tel, presence: true, format: {with: VALID_PHONE_REGEX}
   has_many :items
   has_one :addressinfo
+  has_many :pays
 end
