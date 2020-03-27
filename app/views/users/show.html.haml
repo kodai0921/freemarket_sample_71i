@@ -21,8 +21,9 @@
         .setting_list__contents
           = link_to "#" do
             .setting_list__contents__box
-              .setting_list__contents__box__name
-                ログアウト
+              = link_to destroy_user_session_path do
+                .setting_list__contents__box__name
+                  ログアウト
               .setting_list__contents__box__icon
                 = icon('fas', 'angle-right')  
       %li

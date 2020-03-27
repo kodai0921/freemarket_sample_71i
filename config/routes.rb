@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
 
-  resources :pays, only: [:new, :edit]
+  resources :pays, only: [:new, :show]
 
 
 
