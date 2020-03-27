@@ -86,6 +86,11 @@ ActiveRecord::Schema.define(version: 2020_03_29_083935) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_pays_on_user_id"
+    t.integer "card_number", null: false
+    t.integer "month", null: false
+    t.integer "day", null: false
+    t.integer "security_code", null: false
+    t.integer "user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

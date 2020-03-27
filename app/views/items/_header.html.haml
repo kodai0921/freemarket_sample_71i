@@ -30,6 +30,7 @@
           %li.ListLogOut__Item
             = link_to destroy_user_session_path, method: :delete do
               ログアウト
+            = link_to "マイページ", "/users/show"
         - else
           %li.ListLeft__Item
             = link_to new_user_session_path do
