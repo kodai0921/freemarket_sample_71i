@@ -26,14 +26,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
    end
 
    def create_addressinfo
-     @user = User.new(session["devise.regist_data"]["user"])
-     @addressinfo = Addressinfo.new(address_params)
-     unless @addressinfo.valid?
+    @user = User.new(session["devise.regist_data"]["user"])
+    @addressinfo = Addressinfo.new(address_params)
+    unless @addressinfo.valid?
        flash.now[:alert] = @addressinfo.errors.full_messages
        render :new_addressinfo and return
-     end
+    end
      @user.build_addressinfo(@addressinfo.attributes)
-     @user.save
+    if @user.save
+      redirect_to root_path, notice: 'ユーザー登録が完了しました'
+    else
+      render :new
+    end
      sign_in(:user, @user)
      redirect_to root_path
    end
