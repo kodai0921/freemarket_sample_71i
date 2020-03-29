@@ -26,6 +26,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show,:edit]
   resources :items, only: [:index, :new, :create, :show]
-  resources :purchases, only: [:new]
+
+  resources :addressinfos, only: [:new, :create]
+  resources :purchases, only: [:index, :new] do
+    collection do
+      get 'index', to: 'purchases#index'
+      post 'pay', to: 'purchases#pay'
+      get 'done', to: 'purchases#done'
+    end
+  end
 
 end

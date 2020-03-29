@@ -1,0 +1,51 @@
+.purchase_body
+  %header.purchase_header
+    = image_tag "material/logo/logo.png",class: 'image-box'
+  .purchase_main
+    .purchase_main__contents
+      .purchase_main__contents__header
+        .header_text
+          購入内容の確認
+      .buy-item-info
+        .buy-item-info__body
+          .item_main
+            .item_main__image
+              = image_tag 'material/pict/pict-reason-02.jpg', class: "buy-image"
+            .item_main__detail
+              .detail-box-top
+                シェラック　ハラコ名刺ケース　定価38,000円
+              .detail-box-bottom
+                %span
+                  ¥3800
+                %span
+                  （税込）送料込み
+      .buy-item-form
+        .buy-item-form__main
+          .buy-item-price
+            .buy-item-price__word
+              支払い金額
+            .buy-item-price__money
+              ¥1,100
+          .pay-way
+            .pay-way__contents
+              .pay-way-top
+                支払い方法
+              .pay-way-bottom
+                =link_to pay_pays_path, class: "pay-way-link" do
+                  = icon("fas","plus-circle")
+                  登録してください
+
+          .pay-delivery
+            .delivery-main
+              .delivery-main__top
+                .delivery-left-box
+                  配達先
+              .delivery-main__bottom
+                .address-top
+                  ああああああああ
+                .address-middle
+                  良い良い良い
+                .address-bottom
+                  うううううう
+          = form_tag(action: :pay, method: :post, class: 'buy-btn') do
+            %button.buy-btn 購入する
