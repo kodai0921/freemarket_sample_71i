@@ -3,7 +3,6 @@ class PaysController < ApplicationController
 
   def new
     pay = Pay.where(user_id: current_user.id)
-    #redirect_to action: "show" if card.exists?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -12,8 +11,6 @@ class PaysController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-      #description: '登録テスト', #なくてもOK
-      #email: current_user.email, #なくてもOK
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       ) #念の為metadataにuser_idを入れましたがなくてもOK
