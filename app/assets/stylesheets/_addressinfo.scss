@@ -1,12 +1,10 @@
-/*ここは新規登録のcssです*/
-/*ログイン画面のcssは新規登録のcss以降に記述している*/
-
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-.user-register{
+
+.address-register{
   width: 100vw;
   height: auto;
   background-color: #f5f5f5;
@@ -61,14 +59,6 @@
               background-color: #ea352d;
             }
           }
-          &__text1{
-            color: #888;
-            margin-top: 10px;
-            font-size: 14px;
-          }
-          &__text2{
-            font-size: 14px;
-          }
           
           .text-css{
             width: 343px;
@@ -81,6 +71,7 @@
             -moz-appearance: none;
             font-size: inherit;
           }
+          
           &__name-box{
             .name-text-top{
               display: flex;
@@ -132,6 +123,36 @@
           .year,.month,.day{
             height: 48px;
             width: 76px;
+          }
+        }
+
+        .building{
+          margin-top: 24px;
+          .building-box{
+            margin-bottom: 8px;
+            display: flex;
+            .building-title{
+              font-weight: bold;
+            }
+            .any{
+              color: white;
+              font-size: 12px;
+              border-radius: 2px;
+              padding: 2px 4px;
+              margin: 0 0 0 8px;
+              background-color: #ea352d;
+            }
+          }
+          .building-css{
+            width: 343px;
+            height: 48px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-size: inherit;
           }
         }
         .end-btn{
@@ -190,90 +211,6 @@
           text-align: center;
           line-height: 50px;
           color: white;
-        }
-      }
-    }
-  }
-}
-
-/*ここからはログイン画面のcssを記述しています*/
-
-.user-login{
-  height: 100vh;
-  width: 100%;
-  background-color: #f5f5f5;
-  &__header{
-    height: 128px;
-    width: 100%;
-    text-align: center;
-    line-height: 100px;
-    .header-image-box{
-      height: 70px;
-      width: 200px;
-    }
-  }
-  &__main{
-    height: auto;
-    width: 100%;
-    &__box{
-      width: 456px;
-      height: auto;
-      background-color: white;
-      margin: 0 auto;
-      &__header{
-        padding-top: 52px;
-        height: 144px;
-        width: 100%;
-        border-bottom: solid;
-        &__link{
-          text-decoration: none;
-          &__title{
-            margin: 0 auto;
-            line-height: 42px;
-            text-decoration: none;
-            color: white;
-            height: 42px;
-            width: 328px;
-            background-color: #0099e8;
-            text-align: center;
-          }
-        }
-      }
-      .login-form{
-        .field{
-          width: 328px;
-          margin: 0 auto;
-          margin-top: 28px;
-          &__email{
-            width: 328px;
-            height: 48px;
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-size: inherit;
-          }
-          &__password{
-            width: 328px;
-            height: 48px;
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-size: inherit;
-          }
-        }
-        .login-btn{
-          width: 328px;
-          height: 50px;
-          background-color: #ea352d;
-          color: white;
-          cursor: pointer;
-          margin-bottom: 28px;
         }
       }
     }
