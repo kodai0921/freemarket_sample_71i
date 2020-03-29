@@ -1,7 +1,7 @@
 = render partial: "items/header"
 .user-pays
   .user-pays__title
-    %p クレジットカード情報
+    %p クレジットカード情報入力
   .user-pays__main
     = form_tag(pay_pays_path, method: :post, id: 'charge-form',  name: "inputForm") do
       .user-pays__main__content
