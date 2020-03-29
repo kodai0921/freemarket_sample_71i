@@ -1,0 +1,47 @@
+.address-register
+  .header
+    = image_tag "material/logo/logo.png",class: 'image-box'
+  .main-wrapper
+    .main-wrapper__fields
+      .main-header
+        .main-header__title
+          住所情報登録
+      = form_for @addressinfo do |f|
+        = render "devise/shared/error_messages", resource: @addressinfo
+        .main-content
+          .field
+            .top-text
+              .text-title
+                郵便番号
+              .important
+                必須
+            = f.text_field :postcode, class: "text-css"
+          .field
+            .top-text
+              .text-title
+                都道府県
+              .important
+                必須
+            = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, {}, {class: 'prefecture'}
+          .field
+            .top-text
+              .text-title
+                市区町村
+              .important 
+                必須
+            = f.text_field :address_city, class: "text-css"
+          .field
+            .top-text
+              .text-title
+                番地
+              .important
+                必須
+            = f.text_field :address_street , class: "text-css"
+          .building
+            .building-box
+              .building-title
+                建物名
+              .any
+                任意
+            = f.text_field :address_building, class: "building-css"
+          = f.submit "完了", class: "end-btn"

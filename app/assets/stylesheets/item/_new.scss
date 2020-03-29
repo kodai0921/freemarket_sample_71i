@@ -54,12 +54,15 @@ p {
 .InputBox1 {
   @include box-size;
 }
+
 .InputBox2 {
   @include box-size($size: 150px);
 }
+
 select {
   @include select;
 }
+
 .Required {
   @include required
 }
