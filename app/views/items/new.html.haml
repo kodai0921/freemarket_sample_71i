@@ -36,13 +36,13 @@
             %label.Glay 商品の状態
             .redbox 必須
           %select.InputBox1{name: "Status"}
-            %option{:value => "0"}  選択してください
-            %option{:value => "1"}  新品・未使用
-            %option{:value => "2"}  未使用に近い
-            %option{:value => "3"}  目立った傷なし
-            %option{:value => "4"}  やや傷あり
-            %option{:value => "5"}  めっちゃ傷だらけ
-            %option{:value => "6"}  真っ黒けっけ
+            %option{value: "0"}  選択してください
+            %option{value: "1"}  新品・未使用
+            %option{value: "2"}  未使用に近い
+            %option{value: "3"}  目立った傷なし
+            %option{value: "4"}  やや傷あり
+            %option{value: "5"}  めっちゃ傷だらけ
+            %option{value: "6"}  真っ黒けっけ
           %p.red 選択して下さい。
       .DescriptionDelivery.Space
         .DescriptionDelivery__Inner 
@@ -50,10 +50,10 @@
           .DescriptionDelivery__Inner__Categories.Required
             %label.Glay 配送料の負担
             .redbox 必須
-          %select.InputBox1{:name => "Delivery"}
-            %option{:value => "0"}  選択してください
-            %option{:value => "1"}  送料込み（出品者負担）
-            %option{:value => "2"}  着払い（購入者負担）
+          %select.InputBox1{name: "Delivery"}
+            %option{value: "0"}  選択してください
+            %option{value: "1"}  送料込み（出品者負担）
+            %option{value: "2"}  着払い（購入者負担）
           %p.red 選択して下さい。
           .DescriptionDelivery__Inner__Formfield
           = form_for '#' do |f|
