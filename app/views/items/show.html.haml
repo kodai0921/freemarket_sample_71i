@@ -1,0 +1,199 @@
+%main.ItemIntroduction
+  = render partial: "header"
+  .ItemIntroduction__Inner
+    %h1 孫正義
+    .ItemIntroduction__MainContents
+      .PhotoBox
+        .PhotoBox__Inner
+          = link_to "#", class: "MainPhoto" do
+            = image_tag "material/pict/son1.jpeg"
+          .PhotoBox__Inner__Footer
+            .FooterBox
+              = link_to "#", class: "MainPhoto-Footer" do
+                = image_tag "material/pict/son2.jpeg"
+            .FooterBox
+              = link_to "#", class: "MainPhoto-Footer" do
+                = image_tag "material/pict/son3.jpeg"
+      .ItemShowBox
+        %table
+          %thead
+            %tr.Top-tabel
+              %th.left 出品者
+              %th.TableName
+                アマ早
+                .btn-group
+                  = link_to "#" do
+                    %i.fa.fa-smile{ :style => "color: red"}> 63
+                  = link_to "#" do
+                    %i.fa.fa-meh{ :style => "color: orange"}> 0
+                  = link_to "#" do
+                    %i.fa.fa-frown{ :style => "color: blue"}> 63
+          %tbody
+            %tr
+              %th.left カテゴリー
+              %th メンズ
+          %tbody
+            %tr
+              %th.left ブランド
+              %th Softbank
+          %tbody
+            %tr
+              %th.left 商品の状態
+              %th 新品同様
+          %tbody
+            %tr
+              %th.left 配送料の負担
+              %th 購入者負担
+          %tbody
+            %tr
+              %th.left 配送方法
+              %th 宅配便
+          %tbody
+            %tr
+              %th.left 発送元の地域
+              %th 福岡
+          %tbody
+            %tr
+              %th.left 発送日の目安
+              %th 翌日配送
+    .ItemPriceBox
+      .ItemPriceBox__P.right
+        %span.Price-B ¥
+        %span.Price-B 9,000
+      .ItemPriceBox__D.left
+        %span.Price-S (税込)
+        %span.Price-S 送料込み
+    = link_to "#" do
+      .ItemBuyBtn.b-radius
+        購入画面に進む
+    .ItemBox
+      %p.ItemBox__Inner 海外正規店購入  
+      %p.ItemBox__Inner 新品、未使用品です。納品書も同梱します。 
+      %p.ItemBox__Inner 他サイトにも出品中のため 急に出品を取り下げることもあります。 よろしくお願いします。
+      %P.ItemBox__Inner 時々高級食材を食べたがります。
+
+      
+    .Item-Button-Container
+      .Item-Button-Container__Left
+        = link_to "#", class: "IineBtn" do
+          %i.fa.fa-thumbs-up{ :style => "color: red"}
+          %p いいね！
+
+      .Item-Button-Container__Center
+        = link_to "#", class: "TuhouBtn" do
+          %i.fa.fa-hand-middle-finger{ :style => "color: black"}
+          %p 通報
+      
+      .Item-Button-Container__Right
+        = link_to "#", class: "AnshinBtn" do
+          %i.fas.fa-lock{:style => "color: black"}
+          %p 安心・安全への取り込み
+
+  .ItemIntroduction__Comments
+    .ItemIntroduction__Comments__text
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .form
+      = form_for "#" do |f|
+        = f.text_field :text, placeholder: "コメント待つ", class: 'InputBox2'
+        = f.submit "コメントする", class: 'Submit-Btn'
+
+  .ItemIntroduction__Menuber
+    .ItemIntroduction__Menuber__Left
+      = link_to "#" do
+        %p <<　天早と秘密の部屋
+    .ItemIntroduction__Menuber__Right
+      = link_to "#" do
+        %p 天早とSoftbankの関係性　>>
+  
+  .ItemIntroduction__SnsBox
+    .ItemIntroduction__SnsBox__Inner
+      = link_to "https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fshare.php%3Fu%3Dhttps%253A%252F%252Fwww.mercari.com%252Fjp%252Fitems%252Fm85283253581%252F&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ja_JP", class: "FaceBtn" do
+        %i.fab.fa-facebook-square{:style => "color: white"}
+      = link_to "https://twitter.com/Maeda66277577", class: "TwitterBtn" do
+        %i.fab.fa-twitter{:style => "color: white"}
+      = link_to "https://line.me/ja/", class: "LineBtn" do
+        %i.fab.fa-line{:style => "color: white"}
+  
+  .ItemIntroduction__Items
+    .ItemIntroduction__Items__1row
+      %h1 アマ天さんの他のアイテム
+      .contents
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/son1.jpeg"
+          %p 天羽屋
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/son1.jpeg"
+          %p ソンさん
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/drink1.jpg"
+          %p 炭酸水
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+    .ItemIntroduction__Items__1row.Top
+      .contents
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk.jpg"
+          %p マスク
+          .money
+            %p.second
+              4770円(税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk2.jpg"
+          %p マスク
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk3.jpg"
+          %p マスク
+          .money
+            %p.second
+              4770円（税込み)
+            %p.star ★1
+    .ItemIntroduction__Items__2row.Top
+      %h1 その他の出品者のアイテム
+      .contents
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk.jpg"
+          %p マスク ※一点限り
+          .money
+            %p.second
+              570円(税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk2.jpg"
+          %p マスク ※最後の一点
+          .money
+            %p.second
+              730円（税込み)
+            %p.star ★1
+        = link_to "#", class: "contents__content" do
+          = image_tag "material/pict/msk3.jpg"
+          %p マスク
+          .money
+            %p.second
+              770円（税込み)
+            %p.star ★1
+
+
+  .ItemIntroduction__Categories
+    .ItemIntroduction__Categories__List
+      = link_to "/" do
+        メルカリ
+      .text >
+      .text 孫正義
+  
+  = render partial: "footer"
+

@@ -1,0 +1,144 @@
+// Place all the styles related to the purchases controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.purchase_body{
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f5f5;
+  .purchase_header{
+    .image-box{
+      text-align: center;
+      height: 70px;
+      width: 200px;
+    }
+    padding-top: 30px;
+    text-align: center;
+    height: 128px;
+    width: 100%;
+  }
+  .purchase_main{
+    padding-bottom: 30px;
+    &__contents{
+      padding-bottom: 30px;
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      &__header{
+        height: 97px;
+        background-color: white;
+        margin: 0 auto;
+        border-bottom: solid 1px;
+        .header_text{
+          font-size: 22px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 97px;
+        }
+      }
+      .buy-item-info{
+        position: relative;
+        height: 145px;
+        border-bottom: solid 1px #ccc;
+        &__body{
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          height: 80px;
+          width: 343px;
+          
+          .item_main{
+            display: flex;
+            .buy-image{
+              height: 80px;
+              width: 80px;
+            }
+            &__detail{
+              margin-left: 30px;
+              .detail-box-bottom{
+                margin-top: 10px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+      .buy-item-form{
+        &__main{
+          width: 343px;
+          margin: 0 auto;
+          .buy-item-price{
+            display: flex;
+            width: 343px;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-bottom: 30px;
+            border-bottom: solid 1px #ccc;
+            &__word{
+              font-size: 18px;
+              font-weight: bold;
+            }
+            &__money{
+              font-size: 20px;
+            }
+          }
+          .pay-way{
+            margin-top: 30px;
+            padding-bottom: 30px;
+            border-bottom: solid 1px #ccc;
+            &__contents{
+
+              .pay-way-top{
+                font-weight: bold;
+              }
+              .pay-way-bottom{
+                .pay-way-link{
+                  color: #0099e8;
+                }
+              }
+            }
+          }
+          .pay-delivery{
+            margin-top: 30px;
+            padding-bottom: 30px;
+            border-bottom: solid 1px #ccc;
+            .delivery-main{
+              &__top{
+                .delivery-left-box{
+                  font-weight: bold;
+                  font-size: 14px;
+                }
+              }
+              &__bottom{
+                margin-top: 10px;
+                .address-top{
+
+                }
+                .address-middle{
+
+                }
+                .address-bottom{
+
+                }
+              }
+            }
+          }
+          .buy-btn{
+            margin-top: 28px;
+            width: 348px;
+            height: 50px;
+            background-color: #888;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+          }
+        }
+      }
+      
+    }
+  }
+
+}

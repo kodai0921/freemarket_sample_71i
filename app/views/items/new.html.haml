@@ -1,25 +1,14 @@
 %main.ItemExhibition
   %header.ItemExhibition__Header
     %h2.ItemExhibition__Header__Icon
-      = link_to "#" do
+      = link_to "/" do
         = image_tag "material/logo/logo.png"
   .ItemExhibition__Contents
-    .ItemExhibition__Contents__Inner
-      .ItemImage.Space
-        .ItemImage__Title.Required
-          %label 出品画像
-          .redbox 必須
-        %p.Black 最大10枚までアップロードできます
-        .ImageBox
-          %label{class: "input-box__image"}
-            %i.fas.fa-camera
-            %input{type: "file"}
-            %pre.label-box__text-visible ドラック＆ドロップ
-            %pre.label-box__text-visible クリックしてファイルをアップロード
-      .DescriptionItem.Space
-        .DescriptionItem__Inner
-          .DescriptionItem__Inner__Name.Required
-            %label.Glay 商品名
+    = form_for @items do |item|
+      .ItemExhibition__Contents__Inner
+        .ItemImage.Space
+          .ItemImage__Title.Required
+            %label 出品画像
             .redbox 必須
           %input.InputBox1{type: "text", placeholder: "40文字まで", autocomplete: "off"}
         .DescriptionItem__Inner
@@ -74,46 +63,66 @@
             .Formfield-Prefectures-Input
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
             %p.red 選択して下さい。
-          .DescriptionDelivery__Inner__Day.Required
-            %label.Glay 発送までの日数
-            .redbox 必須
-          %select.InputBox1{:name => "Delivery"}
-            %option{:value => "0"}  選択してください
-            %option{:value => "1"}  1日〜2日で発送
-            %option{:value => "2"}  2日〜3日で発送
-            %option{:value => "3"}  4日〜7日で発送
-          %p.red 選択して下さい。
-      .DescriptionPrice.Space
-        .DescriptionPrice__Inner 
-          %p.Black  価格（¥300〜9,999,999）
-        .PriceBox
-          .PriceBox__Lavel
-            %label.Glay 販売価格
-            .redbox 必須
-          .PriceBox__Range
-            %span.Mark ¥
-            .PriceBox__Range__Inner
-              %input{:name => "price", :type => "number", placeholder: "0", autocomplete: "off"}/
-        %p 300以上9999999以下で入力してください
-        .PriceMargin
-          .PriceMargin__lavel
-            %lavel 販売手数料（10%）
-        .PriceMargin
-          .PriceMargin__lavel
-            %lavel 販売利益
-        .Button-Area
-          .Button-Area__Inner
-            %button.redbutton{type: "submit", class:'btn'}  
-              %p 出品する
-          .Button-Area__Inner
-            %button.glaybutton{type: "submit", class:'btn'}  
-              %p 下書きを保存
-          .Nate
-            %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、
-            %p 法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+            .DescriptionItemShow__Inner__Categories.Required
+              %label.Glay ブランド
+              .glaybox 任意
+            = item.text_field :brand, placeholder: "例）シャネル", class: "InputBox1"
+            .DescriptionItemShow__Inner__Categories.Required
+              %label.Glay 商品の状態
+              .redbox 必須
+            = item.collection_select :condition_id, Condition.all, :id, :name, prompt: "選択してください"
+        .DescriptionDelivery.Space
+          .DescriptionDelivery__Inner 
+            %p.Black 配送について
+            .DescriptionDelivery__Inner__Categories.Required
+              %label.Glay 配送料の負担
+              .redbox 必須
+            = item.collection_select :ship_method_id, ShipMethod.all, :id, :name, prompt:"選択してください"
+            %p.red 選択して下さい。
+            .DescriptionDelivery__Inner__Formfield
+              .Formfield-Prefectures.Required
+                %label.Glay 発送元の地域
+                .redbox 必須
+              .Formfield-Prefectures__Input
+                = item.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+              %p.red 選択して下さい。
+            .DescriptionDelivery__Inner__Day.Required
+              %label.Glay 発送までの日数
+              .redbox 必須
+            = item.collection_select :delivery_date_id, DeliveryDate.all, :id, :name, prompt: "選択してください"
+            %p.red 選択して下さい。
+        .DescriptionPrice.Space
+          .DescriptionPrice__Inner 
+            %p.Black  価格（¥300〜9,999,999）
+          .PriceBox
+            .PriceBox__Lavel
+              %label.Glay 販売価格
+              .redbox 必須
+            .PriceBox__Range
+              %span.Mark ¥
+              .PriceBox__Range__Inner
+                = item.number_field :price, placeholder: "0"
+          %p 300以上9999999以下で入力してください
+          .PriceMargin
+            .PriceMargin__lavel
+              %lavel 販売手数料（10%）
+              %span.fig_first 
+          .PriceMargin
+            .PriceMargin__lavel
+              %lavel 販売利益
+              %span.fig_second 
+          .Button-Area
+            .Button-Area__Inner
+              = item.submit "出品する"
+            .Button-Area__Inner
+              %button.glaybutton{type: "submit", class:'btn'}  
+                %p 下書きを保存
+            .Nate
+              %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、
+              %p 法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
   %footer.ItemExhibition__Footer
     .ItemExhibition__Footer__Notation
       %p プライバシーポリシーFURIMA利用規約特定商取引に関する表記
     %h2.ItemExhibition__Footer__Icon
-      = link_to "#" do
+      = link_to "/" do
         = image_tag "material/logo/logo.png"

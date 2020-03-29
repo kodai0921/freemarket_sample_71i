@@ -71,7 +71,7 @@ gem "haml-rails"
 gem "erb2haml"
 gem "ancestry"
 group :production do
-  gem 'unicorn', '5.4.1'
+gem 'unicorn', '5.4.1'
 end
 gem 'font-awesome-sass'
 gem 'active_hash'
@@ -81,4 +81,6 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'sqlite3', '~> 1.3.13'
 gem 'pry-rails'
+gem "carrierwave"
+gem "mini_magick"
 
