@@ -142,8 +142,10 @@
           color: white;
           cursor: pointer;
           margin-bottom: 10px;
+          display: none;
         }
         .tel{
+          display: none;
           &__box{
             display: flex;
             margin-bottom: 8px;
@@ -170,6 +172,7 @@
           }
         }
         .back{
+          display: none;
           cursor: pointer;
           background-color: #ea352e;
           height: 50px;

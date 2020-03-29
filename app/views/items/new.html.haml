@@ -10,58 +10,64 @@
           .ItemImage__Title.Required
             %label 出品画像
             .redbox 必須
-          %input.InputBox1{type: "text", placeholder: "40文字まで", autocomplete: "off"}
-        .DescriptionItem__Inner
-          .DescriptionItem__Inner__Name.Required
-            %label.Glay 商品の説明
-            .redbox 必須
-          %input.InputBox2{type: "text",rows: "7", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", autocomplete: "off"}
-        .WordCount
-          1/1000
-      .DescriptionItemShow.Space
-        .DescriptionItemShow__Inner 
-          %p.Black 商品の詳細
-          .DescriptionItemShow__Inner__Categories.Required
-            %label.Glay カテゴリ
-            .redbox 必須
-          .category-ancestry  
-            = form_for '#' do |f|
-              = f.select :category, @category_parent_array, {prompt: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-          %p.red 選択して下さい。
-          .DescriptionItemShow__Inner__Categories.Required
-            %label.Glay ブランド
-            .glaybox 任意
-          %input.InputBox1{type: "text", placeholder: "例）シャネル", autocomplete: "off"}
-          .DescriptionItemShow__Inner__Categories.Required
-            %label.Glay 商品の状態
-            .redbox 必須
-          %select.InputBox1{name: "Status"}
-            %option{value: "0"}  選択してください
-            %option{value: "1"}  新品・未使用
-            %option{value: "2"}  未使用に近い
-            %option{value: "3"}  目立った傷なし
-            %option{value: "4"}  やや傷あり
-            %option{value: "5"}  めっちゃ傷だらけ
-            %option{value: "6"}  真っ黒けっけ
-          %p.red 選択して下さい。
-      .DescriptionDelivery.Space
-        .DescriptionDelivery__Inner 
-          %p.Black 配送について
-          .DescriptionDelivery__Inner__Categories.Required
-            %label.Glay 配送料の負担
-            .redbox 必須
-          %select.InputBox1{name: "Delivery"}
-            %option{value: "0"}  選択してください
-            %option{value: "1"}  送料込み（出品者負担）
-            %option{value: "2"}  着払い（購入者負担）
-          %p.red 選択して下さい。
-          .DescriptionDelivery__Inner__Formfield
-          = form_for '#' do |f|
-            .Formfield-Prefectures.Required
-              %label.Glay 発送元の地域
+          %p.Black 最大10枚までアップロードできます
+          .ImageBox#image-box
+            #previews
+              - if @items.persisted?
+                - @items.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+
+
+
+            = item.fields_for :images do |i|
+              .cody
+                .js-file_group{"data-index" => "#{i.index}"}
+
+                  %label{class: "input-box__image"}
+                    %i.fas.fa-camera
+                    
+                    = i.file_field :src, class: "js-file"
+                    %pre.label-box__text-visible ドラック＆ドロップ
+                    %pre.label-box__text-visible クリックしてファイルをアップロード
+                  %span.js-remove 削除
+        .DescriptionItem.Space
+          .DescriptionItem__Inner
+            .DescriptionItem__Inner__Name.Required
+              %label.Glay 商品名
               .redbox 必須
-            .Formfield-Prefectures-Input
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+            = item.text_field :name, placeholder: "40文字まで", class: "InputBox1"
+          .DescriptionItem__Inner
+            .DescriptionItem__Inner__Name.Required
+              %label.Glay 商品の説明
+              .redbox 必須
+            = item.text_area :version, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "7", autocomplete: "off", class: "InputBox2"
+          .WordCount
+            1/1000
+        .DescriptionItemShow.Space
+          .DescriptionItemShow__Inner 
+            %p.Black 商品の詳細
+            .DescriptionItemShow__Inner__Categories.Required
+              %label.Glay カテゴリ
+              .redbox 必須
+
+
+              
+            //仮置きです。カテゴリー機能実装後activehash使用に変更
+            %select.InputBox1{:name => "Categories"}
+              %option{:value => "0"}  選択してください
+              %option{:value => "1"}  レディース
+              %option{:value => "2"}  メンズ
+              %option{:value => "3"}  ベビー
+              %option{:value => "4"}  インテリア
+              %option{:value => "5"}  ゲーム
+              %option{:value => "6"}  おもちゃ
+              %option{:value => "7"}  コスメ
+              %option{:value => "8"}  家電
+              %option{:value => "4"}  スポーツ
+              %option{:value => "5"}  ハンドメイド
+              %option{:value => "6"}  チケット
+              %option{:value => "7"}  その他
+              %option{:value => "8"}  天早
             %p.red 選択して下さい。
             .DescriptionItemShow__Inner__Categories.Required
               %label.Glay ブランド
@@ -101,7 +107,7 @@
             .PriceBox__Range
               %span.Mark ¥
               .PriceBox__Range__Inner
-                // = item.number_field :price, placeholder: "0"
+                = item.number_field :price, placeholder: "0"
           %p 300以上9999999以下で入力してください
           .PriceMargin
             .PriceMargin__lavel
