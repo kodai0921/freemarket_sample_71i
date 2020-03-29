@@ -1,18 +1,12 @@
 class ItemsController < ApplicationController
   def index
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def new
     @items = Item.new
     @items.images.new
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def get_category_children
