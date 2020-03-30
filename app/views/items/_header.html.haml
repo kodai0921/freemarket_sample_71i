@@ -24,9 +24,8 @@
       %ul.ListRight
         - if user_signed_in?
           %li.ListLogOut__Item
-            = link_to destroy_user_session_path, method: :delete do
-              ログアウト
             = link_to "マイページ", "/users/show"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.ListLeft__Item
             = link_to new_user_session_path do
