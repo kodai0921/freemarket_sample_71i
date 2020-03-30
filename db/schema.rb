@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_073314) do
+ActiveRecord::Schema.define(version: 2020_03_29_083935) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 2020_03_27_073314) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "addressinfos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "addressinfos", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
     t.integer "prefecture_code", null: false
     t.string "address_city", null: false
     t.string "address_street", null: false
     t.string "address_building"
     t.string "tel"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "zipcode"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_073314) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "comments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
     t.integer "item_id"
     t.integer "user_id"
@@ -51,13 +51,12 @@ ActiveRecord::Schema.define(version: 2020_03_27_073314) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src"
-    t.bigint "item_id"
+    t.integer "items"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "items", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "version", null: false
     t.string "brand"
@@ -79,21 +78,15 @@ ActiveRecord::Schema.define(version: 2020_03_27_073314) do
     t.integer "delivery_date_id"
   end
 
-  create_table "pays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "pays", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "customer_id", null: false
     t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_pays_on_user_id"
-    t.integer "card_number", null: false
-    t.integer "month", null: false
-    t.integer "day", null: false
-    t.integer "security_code", null: false
-    t.integer "user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -108,16 +101,9 @@ ActiveRecord::Schema.define(version: 2020_03_27_073314) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postcode"
-    t.integer "prefecture_code"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "address_building"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addressinfos", "users"
-  add_foreign_key "images", "items"
-  add_foreign_key "pays", "users"
 end

@@ -17,10 +17,6 @@
         %li.ListsLeft__Categories
           = link_to "#" do
             カテゴリ
-          - @category_parent_array.each do |parent|
-            .category-box
-              = parent
-            %br/
           
         %li.ListsLeft__Categories
           = link_to "#" do
@@ -31,7 +27,6 @@
             = link_to destroy_user_session_path, method: :delete do
               ログアウト
             = link_to "マイページ", "/users/show"
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.ListLeft__Item
             = link_to new_user_session_path do
