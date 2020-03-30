@@ -20,13 +20,13 @@
             %tr.Top-tabel
               %th.left 出品者
               %th.TableName
-                アマ早
+                = @user.name
                 .btn-group
-                  = link_to "#" do
+                  = link_to user_path do
                     %i.fa.fa-smile{ :style => "color: red"}> 63
-                  = link_to "#" do
+                  = link_to user_path do
                     %i.fa.fa-meh{ :style => "color: orange"}> 0
-                  = link_to "#" do
+                  = link_to user_path do
                     %i.fa.fa-frown{ :style => "color: blue"}> 63
           %tbody
             %tr
