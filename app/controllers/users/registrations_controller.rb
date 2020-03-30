@@ -38,7 +38,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       render :new
     end
-    sign_in(:user, @user)
+
+     sign_in(:user, @user)
+
    end
 
   # GET /resource/edit
