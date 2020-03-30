@@ -24,10 +24,10 @@
         - if user_signed_in?
           %li.ListLogOut__Item
             = link_to "マイページ", "/users/show"
-            = link_to "住所登録", new_addressinfo_path(@address)
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.ListLeft__Item
-            = link_to new_user_session_path, method: :delete do
+            = link_to new_user_session_path do
               ログイン
           %li.ListRight__Item
             = link_to new_user_registration_path do
