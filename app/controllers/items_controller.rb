@@ -21,12 +21,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    if Item.create(item_params).save!
-      # @category_parent_array.create
+    if Item.create(item_params).save
       redirect_to  :root
     else
       @items = Item.new
-      @items.images.new  
+      @items.images.new
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+
       render :new
     end
   end
