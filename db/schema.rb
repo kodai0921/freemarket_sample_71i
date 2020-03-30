@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_083935) do
+ActiveRecord::Schema.define(version: 2020_03_28_065700) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_083935) do
     t.integer "size", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
     t.integer "condition_id"
     t.integer "ship_method_id"
     t.integer "prefecture_id"
@@ -80,12 +81,20 @@ ActiveRecord::Schema.define(version: 2020_03_29_083935) do
   end
 
   create_table "pays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_pays_on_user_id"
+    t.integer "card_number", null: false
+    t.integer "month", null: false
+    t.integer "day", null: false
+    t.integer "security_code", null: false
+    t.integer "user_id"
+  end
+
+  create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "item_id"
+    t.string "url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,16 +112,10 @@ ActiveRecord::Schema.define(version: 2020_03_29_083935) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postcode"
-    t.integer "prefecture_code"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "address_building"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addressinfos", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "pays", "users"
 end
