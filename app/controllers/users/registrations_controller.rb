@@ -39,7 +39,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new
     end
      sign_in(:user, @user)
-     redirect_to root_path
    end
 
   # GET /resource/edit
