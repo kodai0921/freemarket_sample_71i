@@ -35,15 +35,16 @@ class ItemsController < ApplicationController
   end
 #---------------------------工事中-----------------------------------------------
   def show
-    if user_signed_in?
-      if @item.seller_id == current_user.id
-        redirect_to show_mine_items_path
-      else
-        set_item_info
-      end
-    else
-      set_item_info
-    end
+    @item = Item.find(params[:id])
+    # if user_signed_in?
+    #   if @item.saler_id == current_user.id
+    #     redirect_to root_path
+    #   else
+    #     set_item_info
+    #   end
+    # else
+    #   set_item_info
+    # end
   end
 
   def show_mine
@@ -74,12 +75,12 @@ class ItemsController < ApplicationController
   end
 
   def set_item_info
-    @seller = User.find(@item.seller_id)
+    @saler = User.find(@item.saler_id)
     @comment = Comment.new
     @comments = Comment.where(item_id: @item.id)
     @previous_item = @item.previous
     @next_item = @item.next
-    @user_items = Item.where(seller_id: @seller.id).where.not(id: @item.id).order("id DESC").limit(6)
+    @user_items = Item.where(saler_id: @seller.id).where.not(id: @item.id).order("id DESC").limit(6)
 
     category_check(@item.category)
     @brand_items = Item.where(brand_id: @item.brand_id).where.not(id: @item.id).order("id DESC").limit(6)

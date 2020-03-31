@@ -1,26 +1,41 @@
 %main.ItemIntroduction
   = render partial: "header"
   .ItemIntroduction__Inner
-    %h1 孫正義
+    %h1
+      = @item.name
     .ItemIntroduction__MainContents
       .PhotoBox
         .PhotoBox__Inner
-          = link_to "#", class: "MainPhoto" do
-            = image_tag "material/pict/son1.jpeg"
-          .PhotoBox__Inner__Footer
-            .FooterBox
-              = link_to "#", class: "MainPhoto-Footer" do
-                = image_tag "material/pict/son2.jpeg"
-            .FooterBox
-              = link_to "#", class: "MainPhoto-Footer" do
-                = image_tag "material/pict/son3.jpeg"
+          - @item.images.each_with_index do |img,i|
+            -# = image_tag(img.image_url.url, size: '300x300', class: "PhotoBox__Inner__MainItemPhoto" ,id: "main_#{i}")
+            = image_tag @item.item_images[0].image.url,height: '300', width: '300'
+-# -------------売り切れた場合-----------------------------------
+        - if @item.status != 0
+          .PhotoBox__Inner__Item__SoldImg
+          .PhotoBox__Inner__Item__SoldText SOLD
+        .PhotoBox__Inner__Footer
+          - @item.item_images.each do |item_image|
+          -# - @item.images.each_with_index do |img, i|
+            .PhotoBox__Inner__Footer__List__Inner
+              -# = image_tag(img.image_url.url, size: '60x60', "data-inner_id": "#{i}")
+              = image_tag item_image.image.url,height: '100', width: '100'
+
+          -# = link_to "#", class: "MainPhoto" do
+          -#   = image_tag "material/pict/son1.jpeg"
+          -# .PhotoBox__Inner__Footer
+          -#   .FooterBox
+          -#     = link_to "#", class: "MainPhoto-Footer" do
+          -#       = image_tag "material/pict/son2.jpeg"
+          -#   .FooterBox
+          -#     = link_to "#", class: "MainPhoto-Footer" do
+          -#       = image_tag "material/pict/son3.jpeg"
       .ItemShowBox
         %table
           %thead
             %tr.Top-tabel
               %th.left 出品者
               %th.TableName
-                = @user.name
+                = link_to "#{@seller.name}"
                 .btn-group
                   = link_to user_path do
                     %i.fa.fa-smile{ :style => "color: red"}> 63
@@ -35,7 +50,8 @@
           %tbody
             %tr
               %th.left ブランド
-              %th Softbank
+              %th
+                = @item.brand
           %tbody
             %tr
               %th.left 商品の状態
@@ -59,7 +75,8 @@
     .ItemPriceBox
       .ItemPriceBox__P.right
         %span.Price-B ¥
-        %span.Price-B 9,000
+        %span.Price-B 
+          = @item.price
       .ItemPriceBox__D.left
         %span.Price-S (税込)
         %span.Price-S 送料込み
@@ -67,12 +84,8 @@
       .ItemBuyBtn.b-radius
         購入画面に進む
     .ItemBox
-      %p.ItemBox__Inner 海外正規店購入  
-      %p.ItemBox__Inner 新品、未使用品です。納品書も同梱します。 
-      %p.ItemBox__Inner 他サイトにも出品中のため 急に出品を取り下げることもあります。 よろしくお願いします。
-      %P.ItemBox__Inner 時々高級食材を食べたがります。
-
-      
+      %p.ItemBox__Inner
+        = @item.version
     .Item-Button-Container
       .Item-Button-Container__Left
         = link_to "#", class: "IineBtn" do
