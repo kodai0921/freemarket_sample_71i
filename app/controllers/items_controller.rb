@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all.includes(:images)
+    @images = Image.all
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
