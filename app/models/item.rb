@@ -10,7 +10,5 @@ class Item < ApplicationRecord
   has_many :images
   accepts_nested_attributes_for :images, allow_destroy: true
   validates_associated :images
-
   validates :name, :version, :price, :condition_id, :ship_method_id, :prefecture_id, :delivery_date_id, :images, presence: true
-  
 end
