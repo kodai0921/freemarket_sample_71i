@@ -16,22 +16,22 @@ $(function () {
   $("#charge-form").validate({
     // ルール設定
     rules: {
-      "pay[number]": {
+      "number": {
         required: true // 番号の入力有無チェック
       },
 
-      "pay[cvc]": {
+      "cvc": {
         required: true 
       }
     },
-    
+
     // エラーメッセージの定義
     messages: {
-      "pay[number]": {
+      "number": {
         required: "番号を入力してください"
       },
 
-      "pay[cvc]": {
+      "cvc": {
         required: "番号を入力してください"
       },
     },
@@ -40,7 +40,7 @@ $(function () {
     validClass: "valid", // バリデーションOKの場合に追加するクラス名の指定
   });
   // 入力欄をフォーカスアウトしたときにバリデーションを実行
-  $("#card_number").blur(function () {
+  $("#card_number, #cvc").blur(function () {
     $(this).valid();
   });
 });
