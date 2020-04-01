@@ -7,35 +7,15 @@
       .PhotoBox
         .PhotoBox__Inner
           - @item.images.each_with_index do |img,i|
-            -# = image_tag(img.image_url.url, size: '300x300', class: "PhotoBox__Inner__MainItemPhoto" ,id: "main_#{i}")
-            = image_tag @item.item_images[0].image.url,height: '300', width: '300'
--# -------------売り切れた場合-----------------------------------
-        - if @item.status != 0
-          .PhotoBox__Inner__Item__SoldImg
-          .PhotoBox__Inner__Item__SoldText SOLD
-        .PhotoBox__Inner__Footer
-          - @item.item_images.each do |item_image|
-          -# - @item.images.each_with_index do |img, i|
-            .PhotoBox__Inner__Footer__List__Inner
-              -# = image_tag(img.image_url.url, size: '60x60', "data-inner_id": "#{i}")
-              = image_tag item_image.image.url,height: '100', width: '100'
+            = image_tag(img.src.url, id: "main_#{i}")
 
-          -# = link_to "#", class: "MainPhoto" do
-          -#   = image_tag "material/pict/son1.jpeg"
-          -# .PhotoBox__Inner__Footer
-          -#   .FooterBox
-          -#     = link_to "#", class: "MainPhoto-Footer" do
-          -#       = image_tag "material/pict/son2.jpeg"
-          -#   .FooterBox
-          -#     = link_to "#", class: "MainPhoto-Footer" do
-          -#       = image_tag "material/pict/son3.jpeg"
       .ItemShowBox
         %table
           %thead
             %tr.Top-tabel
               %th.left 出品者
-              %th.TableName
-                = link_to "#{@seller.name}"
+              %th
+                = @user.nickname
                 .btn-group
                   = link_to user_path do
                     %i.fa.fa-smile{ :style => "color: red"}> 63
@@ -46,7 +26,8 @@
           %tbody
             %tr
               %th.left カテゴリー
-              %th メンズ
+              %th
+                = @category.name
           %tbody
             %tr
               %th.left ブランド
@@ -55,23 +36,24 @@
           %tbody
             %tr
               %th.left 商品の状態
-              %th 新品同様
+              %th 
+                = @item.condition.name
           %tbody
             %tr
               %th.left 配送料の負担
-              %th 購入者負担
+              %th
+                = @item.ship_method.name
           %tbody
             %tr
               %th.left 配送方法
-              %th 宅配便
+              %th
+                = @item.delivery_date.name
           %tbody
             %tr
               %th.left 発送元の地域
-              %th 福岡
-          %tbody
-            %tr
-              %th.left 発送日の目安
-              %th 翌日配送
+              %th
+                = @item.prefecture.name
+
     .ItemPriceBox
       .ItemPriceBox__P.right
         %span.Price-B ¥
@@ -176,7 +158,8 @@
               4770円（税込み)
             %p.star ★1
     .ItemIntroduction__Items__2row.Top
-      %h1 その他の出品者のアイテム
+      %h1
+        = "#{@user.nickname}の他のアイテム"
       .contents
         = link_to "#", class: "contents__content" do
           = image_tag "material/pict/msk.jpg"

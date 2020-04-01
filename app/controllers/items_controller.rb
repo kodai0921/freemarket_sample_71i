@@ -33,26 +33,13 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-#---------------------------工事中-----------------------------------------------
+
   def show
     @item = Item.find(params[:id])
-    # if user_signed_in?
-    #   if @item.saler_id == current_user.id
-    #     redirect_to root_path
-    #   else
-    #     set_item_info
-    #   end
-    # else
-    #   set_item_info
-    # end
+    @user = User.find_by(params[:saler_id])
+    @category = Category.find(params[:id])
   end
 
-  def show_mine
-    set_item_info
-    @category = @item.category
-  end
-
-#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^工事中^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   private
 
 
@@ -61,35 +48,5 @@ class ItemsController < ApplicationController
       :price, :condition_id, :brand, :ship_method_id, :prefecture_id, :delivery_date_id, :category_id,
       images_attributes: [:src]).merge(saler_id: current_user.id)
   end
-
-
-
-
-
-
-
-  
-# ------------------------------工事中-------------------------------------------------
-  def set_item
-    @item = Item.find(params[:item_id])
-  end
-
-  def set_item_info
-    @saler = User.find(@item.saler_id)
-    @comment = Comment.new
-    @comments = Comment.where(item_id: @item.id)
-    @previous_item = @item.previous
-    @next_item = @item.next
-    @user_items = Item.where(saler_id: @seller.id).where.not(id: @item.id).order("id DESC").limit(6)
-
-    category_check(@item.category)
-    @brand_items = Item.where(brand_id: @item.brand_id).where.not(id: @item.id).order("id DESC").limit(6)
-    
-    @postage_burden = postage_burden_check(params[:postage_burden])
-    @scheduled_sending_date = scheduled_check(params[:scheduled_sending_date])
-  end
-
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^工事中^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 end
