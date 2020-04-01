@@ -9,6 +9,8 @@ class PurchasesController < ApplicationController
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "pays", action: "new"
     else
+      @user = current_user
+      @creditcard = Pay.where(user_id: current_user.id).first
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(card.customer_id)
