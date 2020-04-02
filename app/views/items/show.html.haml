@@ -78,6 +78,7 @@
         = link_to "削除", "/items/#{@item.id}", method: :delete, class: "btn_box--delete_btn"
 
     - else @item.buyer.id.present?
+    = link_to purchases_path do
       .ItemBuyBtn.b-radius
         売り切れ
 

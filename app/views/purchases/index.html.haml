@@ -45,10 +45,14 @@
                   配達先
               .delivery-main__bottom
                 .address-top
-                  ああああああああ
+                  = @address.postcode
                 .address-middle
-                  良い良い良い
+                  = @address.pref.name
+                  %br/
+                  = @address.address_city
+                  = @address.address_street
                 .address-bottom
-                  うううううう
+                  =@user.first_name
+                  =@user.last_name
           = form_tag(action: :pay, method: :post, class: 'buy-btn') do
             %button.buy-btn 購入する

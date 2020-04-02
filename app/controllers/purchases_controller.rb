@@ -1,8 +1,10 @@
 class PurchasesController < ApplicationController
   require 'payjp'
+  require 'jp_prefecture'
   before_action :set_card
   def index
-    #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
+    @user = current_user
+    @address = Addressinfo.where(user_id: current_user.id).first
     if @pay.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "pays", action: "new"
