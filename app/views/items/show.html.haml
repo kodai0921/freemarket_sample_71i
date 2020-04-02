@@ -1,26 +1,25 @@
 %main.ItemIntroduction
   = render partial: "header"
   .ItemIntroduction__Inner
-    %h1 孫正義
+    .title=@item.name
     .ItemIntroduction__MainContents
       .PhotoBox
         .PhotoBox__Inner
-          = link_to "#", class: "MainPhoto" do
-            = image_tag "material/pict/son1.jpeg"
-          .PhotoBox__Inner__Footer
-            .FooterBox
-              = link_to "#", class: "MainPhoto-Footer" do
-                = image_tag "material/pict/son2.jpeg"
-            .FooterBox
-              = link_to "#", class: "MainPhoto-Footer" do
-                = image_tag "material/pict/son3.jpeg"
+          = image_tag @item.images.first.src.url
+          - if @item.buyer_id.present?
+            .items-box_photo__sold
+              .items-box_photo__sold__inner SOLD
+        .PhotoBox__Footer
+          .FooterBox
+            - @item.images.each do |image|
+              = image_tag image.src.url
       .ItemShowBox
         %table
           %thead
             %tr.Top-tabel
               %th.left 出品者
               %th.TableName
-                アマ早
+                = @item.saler.nickname
                 .btn-group
                   = link_to "#" do
                     %i.fa.fa-smile{ :style => "color: red"}> 63
@@ -31,63 +30,84 @@
           %tbody
             %tr
               %th.left カテゴリー
-              %th メンズ
+              %th
+                = @category.name
           %tbody
             %tr
               %th.left ブランド
-              %th Softbank
+              %th 
+                - if @item.brand.present?
+                  = @item.brand
+                - else
+                  %p ---
           %tbody
             %tr
               %th.left 商品の状態
-              %th 新品同様
+              %th 
+                = @item.condition.name
           %tbody
             %tr
               %th.left 配送料の負担
-              %th 購入者負担
-          %tbody
-            %tr
-              %th.left 配送方法
-              %th 宅配便
+              %th
+                = @item.ship_method.name
           %tbody
             %tr
               %th.left 発送元の地域
-              %th 福岡
+              %th
+                = @item.prefecture.name
           %tbody
             %tr
               %th.left 発送日の目安
-              %th 翌日配送
+              %th 
+                = @item.delivery_date.name
     .ItemPriceBox
       .ItemPriceBox__P.right
         %span.Price-B ¥
-        %span.Price-B 9,000
+        %span.Price-B
+          = @item.price.to_s(:delimited)
       .ItemPriceBox__D.left
         %span.Price-S (税込)
         %span.Price-S 送料込み
-    = link_to "#" do
+    - if user_signed_in? && current_user.id != @item.saler.id && @item.buyer_id.nil?
+      = link_to "/items/#{@item.id}/purchases/new" do
+        .ItemBuyBtn.b-radius
+          購入画面に進む
+    - elsif user_signed_in? && current_user.id == @item.saler.id
+      .btn_box
+        = link_to "編集", "#", class: "btn_box--edit_btn"
+        = link_to "削除", "/items/#{@item.id}", method: :delete, class: "btn_box--delete_btn"
+
+    - else @item.buyer.id.present?
       .ItemBuyBtn.b-radius
-        購入画面に進む
-    .ItemBox
-      %p.ItemBox__Inner 海外正規店購入  
-      %p.ItemBox__Inner 新品、未使用品です。納品書も同梱します。 
-      %p.ItemBox__Inner 他サイトにも出品中のため 急に出品を取り下げることもあります。 よろしくお願いします。
-      %P.ItemBox__Inner 時々高級食材を食べたがります。
+        売り切れ
 
-      
-    .Item-Button-Container
-      .Item-Button-Container__Left
-        = link_to "#", class: "IineBtn" do
-          %i.fa.fa-thumbs-up{ :style => "color: red"}
-          %p いいね！
 
-      .Item-Button-Container__Center
-        = link_to "#", class: "TuhouBtn" do
-          %i.fa.fa-hand-middle-finger{ :style => "color: black"}
-          %p 通報
-      
-      .Item-Button-Container__Right
-        = link_to "#", class: "AnshinBtn" do
-          %i.fas.fa-lock{:style => "color: black"}
-          %p 安心・安全への取り込み
+    %end
+
+
+
+
+
+      .ItemBox
+        %p.ItemBox__Inner 
+          = @item.version
+
+        
+      .Item-Button-Container
+        .Item-Button-Container__Left
+          = link_to "#", class: "IineBtn" do
+            %i.fa.fa-thumbs-up
+            %p いいね！
+
+        .Item-Button-Container__Center
+          = link_to "#", class: "TuhouBtn" do
+            %i.fa.fa-hand-middle-finger
+            %p 通報
+        
+        .Item-Button-Container__Right
+          = link_to "#", class: "AnshinBtn" do
+            %i.fas.fa-lock
+            %p 安心・安全への取り込み
 
   .ItemIntroduction__Comments
     .ItemIntroduction__Comments__text
@@ -100,10 +120,10 @@
   .ItemIntroduction__Menuber
     .ItemIntroduction__Menuber__Left
       = link_to "#" do
-        %p <<　天早と秘密の部屋
+        %p << 天早と秘密の部屋
     .ItemIntroduction__Menuber__Right
       = link_to "#" do
-        %p 天早とSoftbankの関係性　>>
+        %p 天早とSoftbankの関係性 >>
   
   .ItemIntroduction__SnsBox
     .ItemIntroduction__SnsBox__Inner

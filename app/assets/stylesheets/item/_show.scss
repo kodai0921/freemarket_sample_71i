@@ -21,6 +21,7 @@ th {
 }
 .b-radius {
   border-radius: 10px 10px 10px 10px; 
+  color: white;
 }
 .btn {
   min-height: 1.5em;
@@ -48,7 +49,7 @@ main {
     
     &__Inner {
       @include Contents;
-      h1 {
+      .title {
         @include ItemName;
       }
       .ItemIntroduction__MainContents {
@@ -59,25 +60,51 @@ main {
           min-height: 300px;
           width     : 300px;
           height    : 100%;
-          display   : flex;
           &__Inner{
             margin: 0 auto;
-            &__Footer {
-              line-height: 0;
-              display    : flex;
-              .FooterBox {
-                width     : 60px;
-                height    : 60px;
-                max-height: none;
-                overflow  : hidden;
-                opacity   : 1;
-                cursor    : default;
-                a {
-                  line-height: 60px;
-                }
+            position: relative;
+            img{
+              width: 300px;
+              height: 250px;
+              
+            }
+            .items-box_photo__sold{
+              width: 0;
+              height: 0;
+              border-width: 120px 120px 0 0;
+              border-color: #ea352d transparent transparent transparent;
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 1;
+              border-style: solid;
+              &__inner{
+                top: -90px;
+                font-size: 30px;
+                position: absolute;
+                left: 0;
+                z-index: 2;
+                color: #fff;
+                transform: rotate(-45deg);
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
+            }
+            margin: 0 auto;
+
+          }
+          &__Footer {
+            line-height: 0;
+            display    : flex;
+            .FooterBox {
+              img{
+                width: 60px;
+                height: 60px;
               }
             }
           }
+          
         }
         .ItemShowBox {
           width: 300px;
@@ -114,6 +141,20 @@ main {
         &__D {
           width      : 310px;
           padding-top: 26px;
+        }
+      }
+      .btn_box{
+        display: flex;
+        justify-content: space-around;
+        a{
+          width: 200px;
+          display: block;
+          height: 60px;
+          font-size: 24px;
+          line-height: 60px;
+          background: #ea352d;
+          text-align: center;
+          border-radius: 10px;
         }
       }
       .ItemBuyBtn {

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  #edit機能実装後beforeactionでまとめる
   def index
     @items = Item.all.includes(:images)
     @images = Image.all
@@ -35,6 +36,29 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @category = Category.find(params[:id])
+  end
+
+  # def edit
+  #   @item = Item.find(params[:id])
+  # end
+
+  # def update
+  #   item = Item.find(params[:id])
+  #   item.update(item_params)
+  #   redirect_to item_path(item.id)
+  # end
+
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+    
+    
   end
 
   private
