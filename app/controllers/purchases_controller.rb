@@ -32,6 +32,6 @@ class PurchasesController < ApplicationController
   private
 
   def set_card
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    @card = Pay.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 end
