@@ -10,13 +10,18 @@
         .buy-item-info__body
           .item_main
             .item_main__image
-              = image_tag 'material/pict/pict-reason-02.jpg', class: "buy-image"
+              = image_tag(@item.images.first.src.url, class: "buy-image")
             .item_main__detail
               .detail-box-top
-                シェラック　ハラコ名刺ケース　定価38,000円
+                = @item.name
+                - if @item.brand.present?
+                  = @item.brand
+                - else
+                  %p ---
               .detail-box-bottom
                 %span
-                  ¥3800
+                  = @item.price.to_s(:delimited)
+                  円
                 %span
                   （税込）送料込み
       .buy-item-form
