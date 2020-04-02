@@ -60,11 +60,10 @@ ActiveRecord::Schema.define(version: 2020_03_31_061115) do
     t.string "name", null: false
     t.text "version", null: false
     t.string "brand"
-    t.string "condition", null: false
-    t.string "delivery_select", null: false
     t.integer "saler_id"
     t.integer "buyer_id"
     t.integer "category_id"
+    t.integer "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "condition_id"

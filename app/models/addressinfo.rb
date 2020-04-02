@@ -6,5 +6,6 @@ class Addressinfo < ApplicationRecord
   validates :address_street, presence: true
 
   include JpPrefecture
-  jp_prefecture :prefecture_code
+  jp_prefecture :prefecture_code, method_name: :pref
+
 end
