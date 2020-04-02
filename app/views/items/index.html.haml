@@ -71,7 +71,7 @@
       %p 新規投稿商品
     .contents
       - @items.each do |item|
-        = link_to "/items/#{item.id}", class: "contents__content" do
+        = link_to item_path(item.id), class: "contents__content" do
           = image_tag item.images.first.src.url 
           - if item.buyer_id.present?
             .items-box_photo__sold
