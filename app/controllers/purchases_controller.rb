@@ -31,6 +31,8 @@ class PurchasesController < ApplicationController
     :customer => @pay.customer_id, #顧客ID
     :currency => 'jpy', #日本円
   )
+  @item_buyer = Item.find_by(id: params[:item_id])
+  @item_buyer.update( buyer_id: current_user.id)
   redirect_to action: 'done' #完了画面に移動
   end
   private
