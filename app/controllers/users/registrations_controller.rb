@@ -41,6 +41,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
    end
 
+   def show
+    @user = User.find(params[:id])
+   end
+
   # GET /resource/edit
   # def edit
   #   super
