@@ -24,29 +24,29 @@ class PaysController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    if card.blank?
+    if @pay.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@pay.customer_id)
       customer.delete
-      card.delete
+      @pay.delete
     end
       
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    if card.blank?
+    if @pay.blank?
       redirect_to action: "new" 
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@pay.customer_id)
+      @default_card_information = customer.cards.retrieve(@pay.card_id)
     end
   end
   private
 
   def set_card
-    @card = Pay.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    @pay = Pay.where(user_id: current_user.id).first if Pay.where(user_id: current_user.id).present?
   end
 end
