@@ -1,0 +1,18 @@
+= render partial: "items/header"
+.user-pays
+  .user-pays__title
+    お支払い方法
+  .user-pays__main
+    .user-pays__main__content
+      .field
+        .top-text
+          .text-title
+            クレジットカード一覧
+            %br/
+            = "**** **** **** " + @default_card_information.last4
+      - exp_month = @default_card_information.exp_month.to_s
+      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      = exp_month + " / " + exp_year
+      = form_tag(delete_pays_path, method: :post, id: 'charge-form',  name: "inputForm") do
+        %input{ type: "hidden", name: "card_id", value: "" }
+        %button.card-delete-btn 削除する
