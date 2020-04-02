@@ -69,7 +69,7 @@
         %span.Price-S (税込)
         %span.Price-S 送料込み
     - if user_signed_in? && current_user.id != @item.saler.id && @item.buyer_id.nil?
-      = link_to "/items/#{@item.id}/purchases/new" do
+      = link_to "/items/#{@item.id}/purchases/index" do
         .ItemBuyBtn.b-radius
           購入画面に進む
     - elsif user_signed_in? && current_user.id == @item.saler.id
