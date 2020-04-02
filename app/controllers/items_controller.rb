@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  #edit機能実装後beforeactionでまとめる
   def index
     @items = Item.all.includes(:images)
     @images = Image.all
