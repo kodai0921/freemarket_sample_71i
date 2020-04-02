@@ -2,74 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Addressinfo, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
-  describe '#katakana' do
-    #1. last_name_kanaがカタカナでないと登録できないこと
-    it 'last_name_kanaがカタカナで返ること' do
-      address = build(:addressinfo, last_name_kana: "あああ")
-      address.valid?
-      expect(address.errors[:last_name_kana]).to include("is invalid")
-    end
-
-    # 2. first_name_kanaがカタカナでないと登録できないこと    
-    it 'first_name_kanaがカタカナで返ること' do
-      address = build(:addressinfo, first_name_kana: "ああああ")
-      address.valid?
-      expect(address.errors[:first_name_kana]).to include("is invalid")
-    end
-  end
-
-
-  #3. 全角半角テスト&平仮名カタカナ
-  describe '#hankaku' do
-    it 'first_nameが平仮名または漢字で返ること' do
-      address = build(:addressinfo, first_name: "kaka")
-      address.valid?
-      expect(address.errors[:first_name]).to include("is invalid")
-    end
-
-    it 'last_nameが平仮名または漢字で返ること' do
-      address = build(:addressinfo, last_name: "kaka")
-      address.valid?
-      expect(address.errors[:last_name]).to include("is invalid")
-    end
-
-    it 'first_nameが全角平仮名または漢字であればok' do
-      address = build(:addressinfo, first_name: "あああ")
-      address.valid?
-      expect(address).to be_valid
-    end
-
-    it 'last_nameが平仮名または漢字であればok' do
-      address = build(:addressinfo, last_name: "田ぶせ")
-      address.valid?
-      expect(address).to be_valid
-    end
-  end
 
   describe '#create' do
-    it "is invalid without a first_name" do 
-      address = build(:addressinfo, first_name: nil)
-      address.valid?
-      expect(address.errors[:first_name]).to include("can't be blank")
-    end
-    #4. 姓の覧がからでは登録できないこと
-    it "is invalid without a last_name" do 
-      address = build(:addressinfo, last_name: nil)
-      address.valid?
-      expect(address.errors[:last_name]).to include("can't be blank")
-    end
-    #5. 名(かな)の覧がからでは登録できないこと
-    it "is invalid without a first_name_kana" do 
-      address = build(:addressinfo, first_name_kana: nil)
-      address.valid?
-      expect(address.errors[:first_name_kana]).to include("can't be blank")
-    end
-    #6. 姓(かな)の覧がからでは登録できないこと
-    it "is invalid without a last_name_kana" do 
-      address = build(:addressinfo, last_name_kana: nil)
-      address.valid?
-      expect(address.errors[:last_name_kana]).to include("can't be blank")
-    end
 
     #7. 郵便番号が空では登録できないこと
     it "is invalid without a postcode" do 

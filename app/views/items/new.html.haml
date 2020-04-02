@@ -16,13 +16,9 @@
               - if @items.persisted?
                 - @items.images.each_with_index do |image, i|
                   = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-
-
-
             = item.fields_for :images do |i|
               .cody
                 .js-file_group{"data-index" => "#{i.index}"}
-
                   %label{class: "input-box__image"}
                     %i.fas.fa-camera
                     
@@ -49,8 +45,6 @@
               .redbox 必須
             .category-ancestry
               = item.select :category, @category_parent_array, {prompt: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-
-
               
             %p.red 選択して下さい。
             .DescriptionItemShow__Inner__Categories.Required

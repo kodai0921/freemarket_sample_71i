@@ -19,7 +19,7 @@
     %ul.setting_list
       %li
         .setting_list__contents
-          = link_to "#" do
+          = link_to destroy_user_session_path, method: :delete do
             .setting_list__contents__box
               .setting_list__contents__box__name
                 ログアウト
@@ -27,7 +27,7 @@
                 = icon('fas', 'angle-right')  
       %li
         .setting_list__contents
-          = link_to "#" do
+          = link_to  pay_pays_path do
             .setting_list__contents__box
               .setting_list__contents__box__name
                 クレジットカード新規登録/編集

@@ -1,9 +1,9 @@
 = render partial: "items/header"
 .user-pays
   .user-pays__title
-    %p クレジットカード情報
+    %p クレジットカード情報入力
   .user-pays__main
-    = form_for "#" do |f|
+    = form_tag(pay_pays_path, method: :post, id: 'charge-form',  name: "inputForm") do
       .user-pays__main__content
         .field
           .top-text
@@ -11,7 +11,7 @@
               カード番号
             .important
               必須
-          = f.text_field :card_number, autofocus: true, class: "card_number",placeholder: '半角数字のみ'
+          = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
         .user-pays__card-list
           .icon-visa
             = image_tag "pays/visa.svg" 
@@ -24,9 +24,9 @@
           .icon-american_express
             = image_tag "pays/american_express.svg" 
           .icon-dinersclub
-            = image_tag "pays/dinersclub.svg" 
+            = image_tag "pays/dinersclub.svg"
           .icon-discover
-            = image_tag "pays/discover.svg" 
+            = image_tag "pays/discover.svg"
         .field
           .top-text
             .text-title
@@ -34,18 +34,41 @@
             .important
               必須
         .card-date
-          != sprintf(f.date_select(:expiration_date,with_css_classes:'card-date', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+          %select{name: "exp_month", type: "text", id: "exp_month"}
+            %option{value: ""} --
+            %option{value: "1"}01
+            %option{value: "2"}02
+            %option{value: "3"}03
+            %option{value: "4"}04
+            %option{value: "5"}05
+            %option{value: "6"}06
+            %option{value: "7"}07
+            %option{value: "8"}08
+            %option{value: "9"}09
+            %option{value: "10"}10
+            %option{value: "11"}11
+            %option{value: "12"}12
+          %span.month-text-box 月/
+          %select{name: "exp_year", type: "text", id: "exp_year"}
+            %option{value: ""} --
+            %option{value: "2019"}19
+            %option{value: "2020"}20
+            %option{value: "2021"}21
+            %option{value: "2022"}22
+            %option{value: "2023"}23
+            %option{value: "2024"}24
+            %option{value: "2025"}25
+            %option{value: "2026"}26
+            %option{value: "2027"}27
+            %option{value: "2028"}28
+            %option{value: "2029"}29
+          %span.year-text-box 年
         .field
           .top-text
             .text-title
               セキュリティーコード
             .important
               必須
-          = f.text_field :card_number, autofocus: true, class: "card_number",placeholder: 'カード背面4桁もしくは3桁の番号'
-        .card
-          .card-icon ?
-          .card-text
-            カード裏面の番号とは?
-    .next-box
-      .next-box__text
-        追加する
+      = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+      #card_token
+      = submit_tag "追加する", id: "token_submit"
