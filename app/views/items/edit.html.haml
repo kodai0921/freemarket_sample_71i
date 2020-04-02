@@ -1,0 +1,118 @@
+%main.ItemExhibition
+  %header.ItemExhibition__Header
+    %h2.ItemExhibition__Header__Icon
+      = link_to "/" do
+        = image_tag "material/logo/logo.png"
+  .ItemExhibition__Contents
+    = form_for @item do |item|
+      .ItemExhibition__Contents__Inner
+        .ItemImage.Space
+          .ItemImage__Title.Required
+            %label 出品画像
+            .redbox 必須
+          %p.Black 最大10枚までアップロードできます
+          .ImageBox#image-box
+            #previews
+              - if @items
+                - @items.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+
+
+
+            = item.fields_for :images do |i|
+              .cody
+                .js-file_group{"data-index" => "#{i.index}"}
+
+                  %label{class: "input-box__image"}
+                    %p 編集
+                    
+                    = i.file_field :src, class: "js-file"
+                  %span.js-remove 削除
+        .DescriptionItem.Space
+          .DescriptionItem__Inner
+            .DescriptionItem__Inner__Name.Required
+              %label.Glay 商品名
+              .redbox 必須
+            = item.text_field :name, placeholder: "40文字まで", class: "InputBox1"
+          .DescriptionItem__Inner
+            .DescriptionItem__Inner__Name.Required
+              %label.Glay 商品の説明
+              .redbox 必須
+            = item.text_area :version, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "7", autocomplete: "off", class: "InputBox2"
+          .WordCount
+            1/1000
+        .DescriptionItemShow.Space
+          .DescriptionItemShow__Inner 
+            %p.Black 商品の詳細
+            .DescriptionItemShow__Inner__Categories.Required
+              %label.Glay カテゴリ
+              .redbox 必須
+            .category-ancestry
+              = item.select :category, Category.where(ancestry: nil).pluck(:name), {prompt: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+
+
+              
+            %p.red 選択して下さい。
+            .DescriptionItemShow__Inner__Categories.Required
+              %label.Glay ブランド
+              .glaybox 任意
+            = item.text_field :brand, placeholder: "例）シャネル", class: "InputBox1"
+            .DescriptionItemShow__Inner__Categories.Required
+              %label.Glay 商品の状態
+              .redbox 必須
+            = item.collection_select :condition_id, Condition.all, :id, :name, prompt: "選択してください"
+        .DescriptionDelivery.Space
+          .DescriptionDelivery__Inner 
+            %p.Black 配送について
+            .DescriptionDelivery__Inner__Categories.Required
+              %label.Glay 配送料の負担
+              .redbox 必須
+            = item.collection_select :ship_method_id, ShipMethod.all, :id, :name, prompt:"選択してください"
+            %p.red 選択して下さい。
+            .DescriptionDelivery__Inner__Formfield
+              .Formfield-Prefectures.Required
+                %label.Glay 発送元の地域
+                .redbox 必須
+              .Formfield-Prefectures__Input
+                = item.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+              %p.red 選択して下さい。
+            .DescriptionDelivery__Inner__Day.Required
+              %label.Glay 発送までの日数
+              .redbox 必須
+            = item.collection_select :delivery_date_id, DeliveryDate.all, :id, :name, prompt: "選択してください"
+            %p.red 選択して下さい。
+        .DescriptionPrice.Space
+          .DescriptionPrice__Inner 
+            %p.Black  価格（¥300〜9,999,999）
+          .PriceBox
+            .PriceBox__Lavel
+              %label.Glay 販売価格
+              .redbox 必須
+            .PriceBox__Range
+              %span.Mark ¥
+              .PriceBox__Range__Inner
+                = item.number_field :price, placeholder: "0"
+          %p 300以上9999999以下で入力してください
+          .PriceMargin
+            .PriceMargin__lavel
+              %lavel 販売手数料（10%）
+              %span.fig_first 
+          .PriceMargin
+            .PriceMargin__lavel
+              %lavel 販売利益
+              %span.fig_second 
+          .Button-Area
+            .Button-Area__Inner
+              = item.submit "編集する" 
+            .Button-Area__Inner
+              %button.glaybutton{type: "submit", class:'btn'}  
+                %p 下書きを保存
+            .Nate
+              %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、
+              %p 法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+  %footer.ItemExhibition__Footer
+    .ItemExhibition__Footer__Notation
+      %p プライバシーポリシーFURIMA利用規約特定商取引に関する表記
+    %h2.ItemExhibition__Footer__Icon
+      = link_to "/" do
+        = image_tag "material/logo/logo.png"

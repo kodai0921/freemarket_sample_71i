@@ -4,5 +4,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    user = User.find(params[:id])
+    @items = current_user.items
   end
 end
