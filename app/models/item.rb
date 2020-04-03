@@ -11,5 +11,4 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   validates_associated :images
   validates :name, :version, :price, :condition_id, :ship_method_id, :prefecture_id, :delivery_date_id, :images, presence: true
-  validates :saler_id, :buyer_id, :category_id, :created_at, :updated_at, true
 end

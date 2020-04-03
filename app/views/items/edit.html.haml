@@ -1,7 +1,7 @@
 %main.ItemExhibition
   %header.ItemExhibition__Header
     %h2.ItemExhibition__Header__Icon
-      = link_to "/" do
+      = link_to items_path do
         = image_tag "material/logo/logo.png"
   .ItemExhibition__Contents
     = form_for @item do |item|
@@ -114,5 +114,5 @@
     .ItemExhibition__Footer__Notation
       %p プライバシーポリシーFURIMA利用規約特定商取引に関する表記
     %h2.ItemExhibition__Footer__Icon
-      = link_to "/" do
+      = link_to items_path do
         = image_tag "material/logo/logo.png"

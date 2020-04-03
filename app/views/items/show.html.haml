@@ -74,7 +74,7 @@
           購入画面に進む
     - elsif user_signed_in? && current_user.id == @item.saler.id
       .btn_box
-        = link_to "編集", "/items/#{@item.id}/edit", class: "btn_box--edit_btn"
+        = link_to "編集", edit_item_path, class: "btn_box--edit_btn"
         = link_to "削除", "/items/#{@item.id}", method: :delete, class: "btn_box--delete_btn"
 
     - elsif user_signed_in? && @item.buyer.id.present? 
@@ -215,7 +215,7 @@
 
   .ItemIntroduction__Categories
     .ItemIntroduction__Categories__List
-      = link_to "/" do
+      = link_to items_path do
         メルカリ
       .text >
       .text 孫正義
