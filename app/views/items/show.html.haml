@@ -77,9 +77,13 @@
         = link_to "編集", "#", class: "btn_box--edit_btn"
         = link_to "削除", "/items/#{@item.id}", method: :delete, class: "btn_box--delete_btn"
 
-    - else @item.buyer.id.present?
+    - elsif user_signed_in? && @item.buyer.id.present? 
       .ItemBuyBtn.b-radius
         売り切れ
+    
+    - else 
+      .ItemBuyBtn.b-radius
+        ログインまたは新規登録してください
 
 
     %end
