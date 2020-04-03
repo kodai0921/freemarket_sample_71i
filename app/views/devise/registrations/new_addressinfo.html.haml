@@ -22,7 +22,7 @@
                 都道府県
               .important
                 必須
-            = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, {}, {class: 'prefecture'}
+            = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, {class: 'prefecture'}
           .field
             .top-text
               .text-title

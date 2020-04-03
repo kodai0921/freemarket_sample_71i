@@ -69,7 +69,7 @@
         %span.Price-S (税込)
         %span.Price-S 送料込み
     - if user_signed_in? && current_user.id != @item.saler.id && @item.buyer_id.nil?
-      = link_to "/items/#{@item.id}/purchases/new" do
+      = link_to "/items/#{@item.id}/purchases/index" do
         .ItemBuyBtn.b-radius
           購入画面に進む
     - elsif user_signed_in? && current_user.id == @item.saler.id
@@ -77,9 +77,14 @@
         = link_to "編集", "/items/#{@item.id}/edit", class: "btn_box--edit_btn"
         = link_to "削除", "/items/#{@item.id}", method: :delete, class: "btn_box--delete_btn"
 
-    -# - else @item.buyer.id.present?
-    -#   .ItemBuyBtn.b-radius
-    -#     売り切れ
+    - elsif user_signed_in? && @item.buyer.id.present? 
+      .ItemBuyBtn.b-radius
+        売り切れ
+    
+    - else 
+      .ItemBuyBtn.b-radius
+        ログインまたは新規登録してください
+
 
 
     %end
