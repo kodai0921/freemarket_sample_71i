@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post 'addressinfos', to: 'users/registrations#create_addressinfo'
   end
   root to: 'items#index'
+
   resources :items, only: [:index, :new, :create, :show, :destroy] do
     resources :purchases, only: [:index] do
       collection do
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
         get 'done', to: 'purchases#done'
       end
     end
+
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -36,9 +38,10 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show,:edit]
-  resources :items, only: [:index, :new, :create, :show]
+  resources :items, only: [:index, :new, :create, :show, :edit, :update]
 
   resources :addressinfos, only: [:new, :create]
+
 
 
 end

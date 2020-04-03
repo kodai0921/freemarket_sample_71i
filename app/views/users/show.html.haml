@@ -81,44 +81,44 @@
       .exhibition_list__box
         %section.item_box1
           .item_box1__photo
-          = image_tag 'material/pict/pict-reason-03.jpg'
-          .item_box1__body
-            %h2.item_box1__body__name
-              eeeeeeeeeeeeeeeeeeeeeeeee
-            .item_box1__body__price
-              %div.item_price
-                ¥1,000
-              %div.heart_mark
-                = icon('far', 'heart')
-                %span
-                  1
+          = link_to "/items/3/edit" do
+            = image_tag 'material/pict/pict-reason-03.jpg'
+            .item_box1__body
+              %h2.item_box1__body__name
+                eeeeeeeeeeeeeeeeeeeeeeeee
+              .item_box1__body__price
+                %div.item_price
+                  ¥1,000
+                %div.heart_mark
+                  = icon('far', 'heart')
+                  %span
+                    1
         %section.item_box2
           .item_box2__photo
-          = image_tag 'material/pict/pict-reason-03.jpg'
-          .item_box2__body
-            %h2.item_box2__body__name
-              eeeeeeeeeeeeeeeeeeeeeeeee
-            .item_box2__body__price
-              %div.item_price
-                ¥1,000
-              %div.heart_mark
-                = icon('far', 'heart')
-                %span
-                  1
+            = image_tag 'material/pict/pict-reason-03.jpg'
+            .item_box2__body
+              %h2.item_box2__body__name
+                eeeeeeeeeeeeeeeeeeeeeeeee
+              .item_box2__body__price
+                %div.item_price
+                  ¥1,000
+                %div.heart_mark
+                  = icon('far', 'heart')
+                  %span
+                    1
         %section.item_box2
           .item_box2__photo
-          = image_tag 'material/pict/pict-reason-03.jpg'
-          .item_box2__body
-            %h2.item_box2__body__name
-              eeeeeeeeeeeeeeeeeeeeeeeee
-            .item_box2__body__price
-              %div.item_price
-                ¥1,000
-              %div.heart_mark
-                = icon('far', 'heart')
-                %span
-                  1
+            = image_tag 'material/pict/pict-reason-03.jpg'
+            .item_box2__body
+              %h2.item_box2__body__name
+                eeeeeeeeeeeeeeeeeeeeeeeee
+              .item_box2__body__price
+                %div.item_price
+                  ¥1,000
+                %div.heart_mark
+                  = icon('far', 'heart')
+                  %span
+                    1
 
 = render partial: "items/footer"
-
 

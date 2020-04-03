@@ -35,6 +35,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @images = @item.images
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   def show
     @item = Item.find(params[:id])
     @category = Category.find(params[:id])
@@ -63,7 +77,8 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :version, :saler_id, :byer_id, :size, 
       :price, :condition_id, :brand, :ship_method_id, :prefecture_id, :delivery_date_id, :category_id,
-      images_attributes: [:src]).merge(saler_id: current_user.id)
+      images_attributes: [:src, :_destroy, :id]).merge(saler_id: current_user.id)
   end
+
 
 end
