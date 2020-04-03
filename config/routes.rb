@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
 
-  resources :items, only: [:index, :new, :create, :show, :destroy] do
+  resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
     resources :purchases, only: [:new]
 
     collection do
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show,:edit]
-  resources :items, only: [:index, :new, :create, :show]
+  resources :items, only: [:index, :new, :create, :show, :edit, :update]
 
   resources :addressinfos, only: [:new, :create]
   resources :purchases, only: [:index, :new] do

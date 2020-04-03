@@ -74,14 +74,6 @@ ActiveRecord::Schema.define(version: 2020_04_02_103400) do
     t.integer "price"
   end
 
-  create_table "pays", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -103,7 +95,4 @@ ActiveRecord::Schema.define(version: 2020_04_02_103400) do
 
   add_foreign_key "addressinfos", "users"
   add_foreign_key "images", "items"
-
-  add_foreign_key "pays", "users"
-
 end

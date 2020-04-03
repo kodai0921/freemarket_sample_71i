@@ -47,3 +47,42 @@ describe Item do
 
   end
 end
+
+
+
+# 商品編集
+describe Item do
+  describe '#create' do
+
+    it "is invalid without a saler_id" do
+      item = build(:item, saler_id: "")
+      item.valid?
+      expect(item.errors[:saler_id]).to include("can't be blank")
+    end
+    
+    it "is invalid without a buyer_id" do
+      item = build(:item, buyer_id: "")
+      item.valid?
+      expect(item.errors[:buyer_id]).to include("can't be blank")
+    end
+
+    it "is invalid without a category_id" do
+      item = build(:item, category_id: "")
+      item.valid?
+      expect(item.errors[:category_id]).to include("can't be blank")
+    end
+
+    it "is invalid without a ceated_at" do
+      item = build(:item, category_id: "")
+      item.valid?
+      expect(item.errors[:category_id]).to include("can't be blank")
+    end
+
+    it "is invalid without a updated_at" do
+      item = build(:item, updated_at: "")
+      item.valid?
+      expect(item.errors[:updated_at]).to include("can't be blank")
+    end
+
+  end
+end
