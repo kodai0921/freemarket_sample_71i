@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.string "address_street", null: false
     t.string "address_building"
     t.string "tel"
+<<<<<<< Updated upstream
+=======
+    t.integer "user_id"
+>>>>>>> Stashed changes
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "zipcode"
@@ -54,14 +58,17 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "items", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "version", null: false
     t.string "brand"
-    t.string "delivery_select", default: ""
     t.integer "saler_id"
     t.integer "buyer_id"
     t.integer "category_id"
+<<<<<<< Updated upstream
+=======
+    t.integer "size", null: false
+>>>>>>> Stashed changes
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
@@ -69,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.integer "ship_method_id"
     t.integer "prefecture_id"
     t.integer "delivery_date_id"
+<<<<<<< Updated upstream
   end
 
   create_table "pays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,9 +85,19 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+>>>>>>> Stashed changes
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "pays", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -98,4 +116,8 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< Updated upstream
+=======
+  add_foreign_key "addressinfos", "users"
+>>>>>>> Stashed changes
 end
