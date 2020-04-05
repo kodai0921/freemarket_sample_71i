@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_065617) do
+ActiveRecord::Schema.define(version: 2020_04_04_134336) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.string "address_street", null: false
     t.string "address_building"
     t.string "tel"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "zipcode"
+    t.index ["user_id"], name: "index_addressinfos_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,21 +56,20 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "items", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "version", null: false
     t.string "brand"
-    t.string "delivery_select", default: ""
     t.integer "saler_id"
     t.integer "buyer_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price"
     t.integer "condition_id"
     t.integer "ship_method_id"
     t.integer "prefecture_id"
     t.integer "delivery_date_id"
+    t.integer "price"
   end
 
   create_table "pays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -98,4 +99,5 @@ ActiveRecord::Schema.define(version: 2020_04_04_065617) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addressinfos", "users"
 end
