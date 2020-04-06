@@ -12,6 +12,30 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @images = @item.images
+
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children << children
+    end
+
+    @category_grandchildren = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren << grandchildren
+    end
+
+  end
+
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -35,10 +59,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-    @item = Item.find(params[:id])
-    @images = @item.images
-  end
+ 
 
   def update
     @item = Item.find(params[:id])
