@@ -41,7 +41,7 @@ $(function(){
     }
     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_children',
+        url: '/items/get_category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -71,7 +71,7 @@ $(function(){
     }
     if (childId != "---"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/items/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'

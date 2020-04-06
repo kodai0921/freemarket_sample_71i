@@ -44,12 +44,18 @@
         .DescriptionItemShow.Space
           .DescriptionItemShow__Inner 
             %p.Black 商品の詳細
-            .DescriptionItemShow__Inner__Categories.Required
-              %label.Glay カテゴリ
-              .redbox 必須
-            .category-ancestry
-              = item.select :category, Category.where(ancestry: nil).pluck(:name), {prompt: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-
+            = item.label :category_id , class: 'wrapper__label category-wrapper-label', id: "wrapper__label--category" do
+              .DescriptionItemShow__Inner__Categories.Required
+                カテゴリー：
+                .redbox 必須
+              .category-ancestry
+                = item.select :category_id, @category_parent_array,  {selected:@item.category.parent.parent.name}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              .category-wrapper-select#children_wrapper
+                .category-wrapper-select__box
+                  = item.select :category_id, options_for_select(@category_children.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+              .category-wrapper-select#grandchildren_wrapper
+                .category-wrapper-select__box
+                  = item.select :category_id, options_for_select(@category_grandchildren.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
 
               
             %p.red 選択して下さい。
