@@ -15,7 +15,7 @@
             #previews
               - if @items.persisted?
                 - @items.images.each_with_index do |image, i|
-                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+                  = image_tag image.src.url, data: { index: i } ,style: "!important"
             = item.fields_for :images do |i|
               .cody
                 .js-file_group{"data-index" => "#{i.index}"}

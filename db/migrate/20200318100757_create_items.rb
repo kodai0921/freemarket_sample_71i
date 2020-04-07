@@ -13,7 +13,6 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer :saler_id
       t.integer :buyer_id
       t.integer :category_id, foreign_key: true
-      t.integer :size, null: false
       t.timestamps
     end
   end
