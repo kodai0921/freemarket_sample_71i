@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   #edit機能実装後beforeactionでまとめる
   def index
-    @items = Item.all.includes(:images)
+    @items = Item.all.includes(:images).page(params[:page]).per(3)
     @images = Image.all
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
