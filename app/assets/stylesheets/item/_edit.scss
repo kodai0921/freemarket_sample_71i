@@ -133,11 +133,20 @@ main {
             transition       : all 0.5s ease-out 0s;
             text-align: center;
             font-size: 12px;
-            img{
-              width: 100px;
+
+            #previews{
+              img{
+                width: 100px;
+                height: 100px;
+              }
             }
-            label {
-              text-align: center;
+            .cody{
+              display: flex;
+              width: fit-content;
+              .js-file_group{
+                margin: 0 30px;
+              }
+
             
               input {
                 display      : none;
