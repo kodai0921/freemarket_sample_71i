@@ -115,9 +115,12 @@ main {
             }
           }
           .ImageBox {
+            align-content    : center;
             -webkit-box-align: center;
+            align-items      : center;
             background-color: rgb(245, 245, 245);
             cursor           : pointer;
+            display          : flex;
             height           : 70%;
             flex-wrap        : wrap;
             -webkit-box-pack : center;
@@ -128,36 +131,27 @@ main {
             border-color     : rgb(204, 204, 204);
             border-image     : initial;
             transition       : all 0.5s ease-out 0s;
+            text-align: center;
             font-size: 12px;
-            #previews{
-              img{
-                width: 100px;
+            img{
+              width: 100px;
+            }
+            label {
+              text-align: center;
+            
+              input {
+                display      : none;
+                margin-bottom: 8px;
+              }
+              pre {
+                font-size  : 12px;
+                line-height: 1.4em;
+                text-align : center;
+                width      : 100%;
               }
             }
-            .cody{
-              display: flex;
-              .js-file_group{
-                margin: 0 30px;
-              }
-
-            
-              label {
-                text-align: center;
-              
-                input {
-                  display      : none;
-                  margin-bottom: 8px;
-                }
-                pre {
-                  font-size  : 12px;
-                  line-height: 1.4em;
-                  text-align : center;
-                  width      : 100%;
-                }
-              }
-              span{
-                line-height: 30px;
-              }
+            span{
+              line-height: 30px;
             }
           }
         }

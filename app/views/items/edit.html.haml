@@ -13,14 +13,19 @@
           %p.Black 最大10枚までアップロードできます
           .ImageBox#image-box
             #previews
-              - if @items.persisted?
+              - if @items
                 - @items.images.each_with_index do |image, i|
-                  = image_tag image.src.url, data: { index: i } ,style: "!important"
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+
+
+
             = item.fields_for :images do |i|
               .cody
                 .js-file_group{"data-index" => "#{i.index}"}
-                  %label{class: "input-box__fix"}
+
+                  %label{class: "input-box__image"}
                     %p 編集
+                    
                     = i.file_field :src, class: "js-file"
                   %span.js-remove 削除
         .DescriptionItem.Space
