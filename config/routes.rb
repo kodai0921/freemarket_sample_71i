@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
 
-  resources :items, only: [:index, :new, :create, :show, :destroy] do
+  resources :items do
     resources :purchases, only: [:index] do
       collection do
         get 'index', to: 'purchases#index'
@@ -17,14 +17,10 @@ Rails.application.routes.draw do
         get 'done', to: 'purchases#done'
       end
     end
-
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
-
-
-    
   end
 
   resources :pays, only: [:new, :show] do
@@ -35,13 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :users, only: [:show,:edit]
-  resources :items, only: [:index, :new, :create, :show, :edit, :update]
 
   resources :addressinfos, only: [:new, :create]
-
-
 
 end

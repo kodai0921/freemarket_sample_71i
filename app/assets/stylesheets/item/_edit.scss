@@ -132,10 +132,12 @@ main {
             #previews{
               img{
                 width: 100px;
+                height: 100px;
               }
             }
             .cody{
               display: flex;
+              width: fit-content;
               .js-file_group{
                 margin: 0 30px;
               }

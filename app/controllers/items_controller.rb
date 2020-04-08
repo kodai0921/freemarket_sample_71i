@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   #edit機能実装後beforeactionでまとめる
   def index
-    @items = Item.all.includes(:images).page(params[:page]).per(3)
+    @items = Item.all.includes(:images).order("created_at DESC").page(params[:page]).per(3)
     @images = Image.all
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @images = @item.images
+    @item.images
 
     grandchild_category = @item.category
     child_category = grandchild_category.parent
@@ -75,15 +75,6 @@ class ItemsController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  # def edit
-  #   @item = Item.find(params[:id])
-  # end
-
-  # def update
-  #   item = Item.find(params[:id])
-  #   item.update(item_params)
-  #   redirect_to item_path(item.id)
-  # end
 
   def destroy
     item = Item.find(params[:id])
