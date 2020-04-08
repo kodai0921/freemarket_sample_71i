@@ -13,21 +13,24 @@
           %p.Black 最大10枚までアップロードできます
           .ImageBox#image-box
             #previews
-              - if @items
-                - @items.images.each_with_index do |image, i|
-                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-
-
-
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }
             = item.fields_for :images do |i|
               .cody
                 .js-file_group{"data-index" => "#{i.index}"}
-
                   %label{class: "input-box__image"}
-                    %p 編集
-                    
+                    %i.fas.fa-camera
                     = i.file_field :src, class: "js-file"
                   %span.js-remove 削除
+              - if @item.persisted?
+                = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.images.count}"}
+                %label{class: "input-box__image"}
+                  %i.fas.fa-camera 
+                  = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                %span.js-remove 削除
         .DescriptionItem.Space
           .DescriptionItem__Inner
             .DescriptionItem__Inner__Name.Required

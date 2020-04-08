@@ -15,15 +15,23 @@
             #previews
               - if @items.persisted?
                 - @items.images.each_with_index do |image, i|
-                  = image_tag image.src.url, data: { index: i } ,style: "!important"
+                  = image_tag image.src.url, data: { index: i }
             = item.fields_for :images do |i|
               .cody
                 .js-file_group{"data-index" => "#{i.index}"}
                   %label{class: "input-box__image"}
                     %i.fas.fa-camera
-                    
                     = i.file_field :src, class: "js-file"
                   %span.js-remove 削除
+              - if @items.persisted?
+                = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+            - if @items.persisted?
+              .js-file_group{"data-index" => "#{@items.images.count}"}
+                = file_field_tag :src, name: "item[images_attributes][#{@items.images.count}][src]", class: 'js-file'
+                .js-remove 削除
+
+
+
         .DescriptionItem.Space
           .DescriptionItem__Inner
             .DescriptionItem__Inner__Name.Required
