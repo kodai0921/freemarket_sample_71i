@@ -29,9 +29,6 @@
               .js-file_group{"data-index" => "#{@items.images.count}"}
                 = file_field_tag :src, name: "item[images_attributes][#{@items.images.count}][src]", class: 'js-file'
                 .js-remove 削除
-
-
-
         .DescriptionItem.Space
           .DescriptionItem__Inner
             .DescriptionItem__Inner__Name.Required
