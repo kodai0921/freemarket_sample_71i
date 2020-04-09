@@ -4,6 +4,85 @@
 
 }
 
+.Headerr {
+  min-width: 1160px;
+  padding: 0 60px;
+    &__Inner {
+      max-width: 1040px;
+      width: 100%;
+      min-height: 100x;
+      margin: 0 auto;
+      padding: 15px 0 0;
+        &__Main {
+          height: 50px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          .Icon {
+            padding-bottom: 10px;
+            margin-right: 30px;
+            border-radius: 4px;
+            a {
+              width: 140px;
+              display: block;
+            }
+          }
+          .SearchBox {
+            margin-left: auto;
+            width: 100%;
+            form input {
+              width: calc(100% - 45px);
+              height: 36px;
+              padding: 0 0 0 5px;
+            }
+            form button {
+              width: 36px;
+              border: 0;
+              cursor: pointer;
+              background-color: #3CCACE;
+              padding: 8px;
+            }
+          }
+        }
+
+        &__Menuber {
+          font-size: 14px;
+          display: flex;
+          margin-bottom: 10px;
+          height: 35px;
+          justify-content: space-between;
+          margin: 0 auto;
+          .ListLeft {
+            position: relative;
+            display: flex;
+            text-decoration: none;
+            list-style: none;
+            a {
+              color: #333;
+              text-decoration: none;
+              line-height: 32px;
+              background-position: center right;
+              background-repeat: no-repeat;
+              background-size: 18px;
+              padding-right: 30px;
+            }
+          }
+          .ListRight {
+            display: flex;
+            list-style: none;
+            margin: 5px;
+            a {
+              width: 32px;
+              padding: 0 0 0 16px;
+              text-decoration: none;
+              color: #333;
+              
+            }
+          }
+        }
+    }
+}
+
 .user_name{
   height: 49px;
   position: relative;
@@ -43,13 +122,10 @@
   }
 }
 
-
-
-
 .user_body{
   display: flex;
   background-color:#eeeeee;
-  height: 1577px;
+  height: 1580px;
   width: 0px;
   &__settings{
     
@@ -316,5 +392,48 @@
   }
 }
 
+.footerr{
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  min-width: 1160px;
+}
+.icons{
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  &__icon{
+    display: flex;
+    flex-direction: column;
+    width: calc(1 / 3 * 100%);
+    margin: 0 2% 0 0;
+    &__head{
+      margin: 0 0 20px;
+      font-size: 16px;
+      font-weight: bold;
+      ul{
+        list-style: none;
+        margin-top: 20px;
+        li{
+          margin-top: 5px;
+          a{
+            text-decoration: none;
+            color: white;
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+.footer_mark{
+  max-width: 160px;
+  width: 100%;
+  margin: 0 auto;
+  img{
+    width: 150px;
+  }
+}
 
 
